@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <ImageView fitHeight="400.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../../../../Captura%20de%20pantalla%202025-05-07%20203213.png" />
+         </image>
+      </ImageView>
+   </left>
+   <right>
+      <Label alignment="BASELINE_RIGHT" prefHeight="410.0" prefWidth="337.0" textFill="#ad44e1" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Verdana" size="24.0" />
+         </font>
+         <graphic>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="22.0" layoutY="149.0" prefHeight="38.0" prefWidth="106.0" text="Username" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="233.0" />
+                  <Label layoutX="22.0" layoutY="214.0" prefHeight="38.0" prefWidth="106.0" text="Password" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="password" layoutX="131.0" layoutY="216.0" promptText="password" />
+                  <Button fx:id="btnlogin" layoutX="158.0" layoutY="298.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="34.0" prefWidth="110.0" style="-fx-background-radius: 15;" text="LOG IN" />
+                  <TextField fx:id="username" layoutX="131.0" layoutY="156.0" promptText="username" />
+               </children>
+            </AnchorPane>
+         </graphic>
+      </Label>
+   </right>
+</BorderPane>

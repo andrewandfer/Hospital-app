@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 15; -fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.HospitalAppController">
+   <left>
+      <ImageView fitHeight="359.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../../../../Captura%20de%20pantalla%202025-05-07%20203213.png" />
+         </image>
+      </ImageView>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1A3C58;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="155.0" layoutY="270.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="Paciente">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button layoutX="155.0" layoutY="210.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="Medico">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button layoutX="155.0" layoutY="150.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="Administrador">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Label layoutX="160.0" layoutY="29.0" text="Bienvenido " textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="140.0" layoutY="68.0" text="como quiere iniciar sesion?" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

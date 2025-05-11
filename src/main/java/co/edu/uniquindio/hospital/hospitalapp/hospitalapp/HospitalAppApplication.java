@@ -15,7 +15,7 @@ public class HospitalAppApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HospitalAppApplication.class.getResource("hospitalapp-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
-        // Icono personalizado (asegúrate de que el nombre y ruta coincidan exactamente)
+
         stage.getIcons().add(new Image(Objects.requireNonNull(
                 getClass().getResourceAsStream("/imagenes/logo.png")
         )));

@@ -6,25 +6,17 @@ import java.util.LinkedList;
 import java.util.UUID;
 
 public class Paciente extends Persona {
-    private String idPaciente;
     private HistorialMedico historialMedico;
     private LinkedList<Cita> citas;
     private Medico medicoAsignado;
+    private LocalDate fechaNacimiento;
 
-    public Paciente(String nombre, String apellido, String id, String idPaciente, String grupoSanguineo, String fechaNacimiento, HistorialMedico historialMedico) {
+    public Paciente(String nombre, String apellido, String id, LocalDate fechaNacimiento, HistorialMedico historialMedico) {
         super(nombre, apellido, id);
-        this.idPaciente = idPaciente;
-        this.historialMedico = historialMedico;
+        this.historialMedico = null;
+        this.fechaNacimiento = fechaNacimiento;
         this.citas = new LinkedList<>();
         this.medicoAsignado = null;
-    }
-
-    public String getIdPaciente() {
-        return idPaciente;
-    }
-
-    public void setIdPaciente(String idPaciente) {
-        this.idPaciente = idPaciente;
     }
 
     public HistorialMedico getHistorialMedico() {
@@ -47,6 +39,14 @@ public class Paciente extends Persona {
         return medicoAsignado;
     }
 
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public void setMedicoAsignado(Medico medicoAsignado) {
         this.medicoAsignado = medicoAsignado;
     }
@@ -55,6 +55,7 @@ public class Paciente extends Persona {
             System.out.println("El paciente no tiene un médico asignado.");
             return false;
         }
+
 
         // Generar ID único para la cita
         String idCita = UUID.randomUUID().toString();
@@ -88,7 +89,6 @@ public class Paciente extends Persona {
     @Override
     public String toString() {
         return "Paciente{" +
-                "idPaciente='" + idPaciente + '\'' +
                 ", historialMedico=" + historialMedico +
                 ", citas=" + citas +
                 '}';

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model;
 
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class Administrador extends Persona {
@@ -66,7 +67,7 @@ public class Administrador extends Persona {
     }
     public boolean actualizarPaciente(String idPaciente, HistorialMedico nuevoHistorial, LinkedList<Cita> nuevasCitas) {
         for (Paciente paciente : PacienteAdministrados) {
-            if (paciente.getIdPaciente().equals(idPaciente)) {
+            if (paciente.getId().equals(idPaciente)) {
                 paciente.setHistorialMedico(nuevoHistorial);
                 paciente.setCitas(nuevasCitas);
                 return true;
@@ -173,6 +174,11 @@ public class Administrador extends Persona {
     }
 
 
+    public void registrarPaciente(String cedula, String nombre, String apellido, LocalDate fechaNacimiento) {
+        Paciente nuevoPaciente = new Paciente(cedula, nombre, apellido, fechaNacimiento, null);
+        agregarPaciente(nuevoPaciente);
+        System.out.println("Paciente registrado: " + nuevoPaciente);
+    }
 
 
 

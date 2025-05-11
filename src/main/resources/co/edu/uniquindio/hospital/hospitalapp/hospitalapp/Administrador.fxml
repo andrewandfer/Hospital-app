@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.AdministradorViewController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="419.0" prefWidth="630.0">
@@ -27,10 +26,22 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="384.0" layoutY="100.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Gestionar pacientes" />
-            <Button layoutX="385.0" layoutY="138.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Gestionar Medicos" />
-            <Button layoutX="386.0" layoutY="177.0" mnemonicParsing="false" text="gestionar salas y horarios" />
-            <Button layoutX="387.0" layoutY="211.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Generar reportes" />
+            <Button fx:id="btnGestionarPacientes" layoutX="378.0" layoutY="111.0" mnemonicParsing="false" onAction="#OnGestionarPacientes" prefHeight="35.0" prefWidth="166.0" text="Gestionar Pacientes">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnGestionarMedicos" layoutX="378.0" layoutY="175.0" mnemonicParsing="false" onAction="#OnGestionarMedicos" prefHeight="35.0" prefWidth="166.0" text="Gestionar Medicos">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnGestionarSalaYHorario" layoutX="378.0" layoutY="237.0" mnemonicParsing="false" onAction="#OnGestionarSalaYHorarios" prefHeight="35.0" prefWidth="166.0" text="Gestionar Salas y Horarios">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnGenerarReporte" layoutX="378.0" layoutY="299.0" mnemonicParsing="false" onAction="#OnGenerarReporte" prefHeight="35.0" prefWidth="166.0" text="Generar Reportes">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </children>

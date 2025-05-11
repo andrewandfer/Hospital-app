@@ -1,6 +1,5 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp;
 
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,6 +45,20 @@ public class HospitalAppController {
 
     @FXML
     void onMedico(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/Medico.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Medico");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 

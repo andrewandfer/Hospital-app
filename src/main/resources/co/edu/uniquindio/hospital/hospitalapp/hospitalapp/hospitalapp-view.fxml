@@ -18,7 +18,7 @@
       </ImageView>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1A3C58;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="155.0" layoutY="270.0" mnemonicParsing="false" onAction="#onPaciente" prefHeight="35.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="Paciente">
                <effect>
@@ -27,7 +27,7 @@
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
-            <Button layoutX="155.0" layoutY="210.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="Medico">
+            <Button layoutX="155.0" layoutY="210.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="Medico" onAction="#onMedico">
                <effect>
                   <DropShadow />
                </effect>
@@ -41,12 +41,12 @@
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
-            <Label layoutX="160.0" layoutY="29.0" text="Bienvenido " textFill="#fcfcfc">
+            <Label layoutX="160.0" layoutY="29.0" text="Bienvenido " textFill="#080808">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="140.0" layoutY="68.0" text="como quiere iniciar sesion?" textFill="WHITE">
+            <Label layoutX="140.0" layoutY="68.0" text="como quiere iniciar sesion?" textFill="#0d0d0d">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>

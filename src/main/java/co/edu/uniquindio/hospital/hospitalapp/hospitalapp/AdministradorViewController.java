@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,6 +38,8 @@ public class AdministradorViewController {
 
             Stage stage = new Stage();
             stage.setTitle("Hospital UQ-Administrador-GestionMedicos");
+            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
+            stage.getIcons().add(icon);
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -54,6 +57,8 @@ public class AdministradorViewController {
 
         Stage stage = new Stage();
         stage.setTitle("Hospital UQ-Gestion de Pacientes");
+            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
+            stage.getIcons().add(icon);
         stage.setScene(new Scene(root));
         stage.show();
 

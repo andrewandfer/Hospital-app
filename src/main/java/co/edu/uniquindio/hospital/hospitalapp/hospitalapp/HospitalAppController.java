@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+
 
 import java.io.IOException;
 
@@ -33,6 +35,9 @@ public class HospitalAppController {
 
             Stage stage = new Stage();
             stage.setTitle("Administrador");
+            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
+            stage.getIcons().add(icon);
+
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -51,6 +56,8 @@ public class HospitalAppController {
 
             Stage stage = new Stage();
             stage.setTitle("Medico");
+            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
+            stage.getIcons().add(icon);
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -70,6 +77,8 @@ public class HospitalAppController {
 
             Stage stage = new Stage();
             stage.setTitle("Paciente");
+            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
+            stage.getIcons().add(icon);
             stage.setScene(new Scene(root));
             stage.show();
 

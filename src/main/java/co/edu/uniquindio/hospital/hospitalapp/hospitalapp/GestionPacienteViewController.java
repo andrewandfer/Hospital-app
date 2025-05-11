@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -66,6 +67,8 @@ public class GestionPacienteViewController {
 
             Stage stage = new Stage();
             stage.setTitle("Registrar Paciente");
+            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
+            stage.getIcons().add(icon);
             stage.setScene(new Scene(root));
             stage.show();
 

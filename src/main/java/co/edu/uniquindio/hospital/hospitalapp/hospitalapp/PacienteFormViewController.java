@@ -24,8 +24,24 @@ public class PacienteFormViewController {
 
     private GestionPacienteViewController parentController;
 
+    private boolean modoEdicion = false;
+    private Paciente pacienteOriginal;
+
     public void setParentController(GestionPacienteViewController controller) {
         this.parentController = controller;
+    }
+
+    public void setModoEdicion(boolean modoEdicion, Paciente paciente) {
+        this.modoEdicion = modoEdicion;
+        this.pacienteOriginal = paciente;
+
+        if (paciente != null) {
+            txtCedula.setText(paciente.getId());
+            txtNombre.setText(paciente.getNombre());
+            txtApellido.setText(paciente.getApellido());
+            campoFecha.setValue(paciente.getFechaNacimiento());
+            txtCedula.setDisable(true); // No permitir cambiar la cédula en edición
+        }
     }
 
     @FXML
@@ -43,12 +59,18 @@ public class PacienteFormViewController {
         Paciente nuevoPaciente = new Paciente(cedula, nombre, apellido, fechaNacimiento, null);
 
         if (parentController != null) {
-            parentController.agregarPacienteATabla(nuevoPaciente);
+            if (modoEdicion && pacienteOriginal != null) {
+                parentController.actualizarPaciente(pacienteOriginal, nuevoPaciente);
+            } else {
+                parentController.agregarPacienteATabla(nuevoPaciente);
+            }
         }
 
-        txtCedula.getScene().getWindow().hide(); // Cierra la ventana
+        // Cierra la ventana
+        txtCedula.getScene().getWindow().hide();
     }
 }
+
 
 
 

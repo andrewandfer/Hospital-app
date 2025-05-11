@@ -72,6 +72,7 @@ public class HospitalAppController {
     @FXML
     void onPaciente(ActionEvent event) {
         try {
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/Paciente.fxml"));
             Parent root = loader.load();
 
@@ -85,5 +86,6 @@ public class HospitalAppController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

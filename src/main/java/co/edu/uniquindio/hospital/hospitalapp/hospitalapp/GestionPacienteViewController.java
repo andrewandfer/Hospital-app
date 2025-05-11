@@ -8,15 +8,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class GestionPacienteViewController {
 
@@ -30,7 +28,13 @@ public class GestionPacienteViewController {
     private Button btnRegistrarPaciente;
 
     @FXML
+    private TableView<Paciente> tablaPacientes;
+
+    @FXML
     private TableColumn<Paciente, String> tcApellido;
+
+    @FXML
+    private TableColumn<Paciente, LocalDate> tcFechaNacimiento;
 
     @FXML
     private TableColumn<Paciente, String> tcId;
@@ -38,26 +42,55 @@ public class GestionPacienteViewController {
     @FXML
     private TableColumn<Paciente, String> tcNombre;
 
-    @FXML
-    private TableColumn<Paciente, LocalDate> tcFechaNacimiento;
-
-    @FXML
-    private TableView<Paciente> tablaPacientes;
-
-    private ObservableList<Paciente> listaPacientes = FXCollections.observableArrayList();
+    private final ObservableList<Paciente> listaPacientes = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tcNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        tcApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
-        tcFechaNacimiento.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
+        tcId.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getId()));
+        tcNombre.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getNombre()));
+        tcApellido.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getApellido()));
+        tcFechaNacimiento.setCellValueFactory(data -> new javafx.beans.property.SimpleObjectProperty<>(data.getValue().getFechaNacimiento()));
 
         tablaPacientes.setItems(listaPacientes);
     }
 
     @FXML
     void OnRegistrarPaciente(ActionEvent event) {
+        abrirFormularioPaciente(false, null);
+    }
+
+    @FXML
+    void OnActualizarPaciente(ActionEvent event) {
+        Paciente seleccionado = tablaPacientes.getSelectionModel().getSelectedItem();
+        if (seleccionado != null) {
+            abrirFormularioPaciente(true, seleccionado);
+        } else {
+            mostrarAlerta("Debes seleccionar un paciente para actualizar.");
+        }
+    }
+
+    @FXML
+    void OnBorrarPaciente(ActionEvent event) {
+        Paciente seleccionado = tablaPacientes.getSelectionModel().getSelectedItem();
+        if (seleccionado != null) {
+            listaPacientes.remove(seleccionado);
+        } else {
+            mostrarAlerta("Debes seleccionar un paciente para eliminar.");
+        }
+    }
+
+    public void agregarPacienteATabla(Paciente paciente) {
+        listaPacientes.add(paciente);
+    }
+
+    public void actualizarPaciente(Paciente original, Paciente actualizado) {
+        int index = listaPacientes.indexOf(original);
+        if (index != -1) {
+            listaPacientes.set(index, actualizado);
+        }
+    }
+
+    private void abrirFormularioPaciente(boolean editar, Paciente paciente) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/PacienteForm.fxml"));
             Parent root = loader.load();
@@ -65,10 +98,12 @@ public class GestionPacienteViewController {
             PacienteFormViewController controller = loader.getController();
             controller.setParentController(this);
 
+            if (editar && paciente != null) {
+                controller.setModoEdicion(true, paciente);
+            }
+
             Stage stage = new Stage();
-            stage.setTitle("Registrar Paciente");
-            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
-            stage.getIcons().add(icon);
+            stage.setTitle(editar ? "Actualizar Paciente" : "Registrar Paciente");
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -77,17 +112,16 @@ public class GestionPacienteViewController {
         }
     }
 
-    public void agregarPacienteATabla(Paciente paciente) {
-        listaPacientes.add(paciente);
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Advertencia");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagenes/logo.png")));
+
+        alert.showAndWait();
     }
 
-    @FXML
-    void OnActualizarPaciente(ActionEvent event) {
-        // implementación futura
-    }
-
-    @FXML
-    void OnBorrarPaciente(ActionEvent event) {
-        // implementación futura
-    }
 }
+

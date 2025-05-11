@@ -6,11 +6,11 @@ public class Sala {
     private String capacidad;
     private Boolean disponibilidad;
 
-    public Sala(String idSala, String nombre, String capacidad, Boolean especialidad) {
+    public Sala(String idSala, String nombre, String capacidad, Boolean disponibilidad) {
         this.idSala = idSala;
         this.nombre = nombre;
         this.capacidad = capacidad;
-        this.disponibilidad = especialidad;
+        this.disponibilidad = disponibilidad;
     }
 
     public String getIdSala() {
@@ -36,14 +36,6 @@ public class Sala {
 
     public void setCapacidad(String capacidad) {
         this.capacidad = capacidad;
-    }
-
-    public Boolean getEspecialidad() {
-        return disponibilidad;
-    }
-
-    public void setEspecialidad(Boolean especialidad) {
-        this.disponibilidad = especialidad;
     }
 
     public Boolean getDisponibilidad() {

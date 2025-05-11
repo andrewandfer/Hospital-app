@@ -62,7 +62,7 @@ public class GestionPacienteViewController {
             Parent root = loader.load();
 
             PacienteFormViewController controller = loader.getController();
-            controller.setParentController(this); // establecer el controlador padre
+            controller.setParentController(this);
 
             Stage stage = new Stage();
             stage.setTitle("Registrar Paciente");

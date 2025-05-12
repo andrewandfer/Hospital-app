@@ -1,4 +1,4 @@
-package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
+package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ import java.util.Objects;
 public class HospitalAppApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HospitalAppApplication.class.getResource("hospitalapp-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HospitalAppApplication.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/hospitalapp-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
 

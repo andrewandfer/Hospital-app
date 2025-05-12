@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                co.edu.uniquindio.hospital.hospitalapp.hospitalapp/co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.HospitalAppApplication
+                                co.edu.uniquindio.hospital.hospitalapp.hospitalapp/co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

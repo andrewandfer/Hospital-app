@@ -5,9 +5,11 @@ module co.edu.uniquindio.hospital.hospitalapp.hospitalapp {
 
     opens co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model to javafx.base;
 
-    opens co.edu.uniquindio.hospital.hospitalapp.hospitalapp to javafx.fxml;
+    opens co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app to javafx.fxml;
 
-    exports co.edu.uniquindio.hospital.hospitalapp.hospitalapp;
+    exports co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app;
     exports co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
     opens co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController to javafx.fxml;
+
+
 }

@@ -10,13 +10,13 @@ public class HistorialMedico {
     private String tratamiento;
     private String fechaNacimiento;
 
-    public HistorialMedico(LinkedList<Medico> colaboradores, String diagnostico, String idHistorialMedico, Paciente paciente, String tratamiento, String fechaNacimiento) {
-        this.colaboradores = colaboradores;
+    public HistorialMedico(String diagnostico, String idHistorialMedico, String tratamiento, String fechaNacimiento, Paciente paciente, LinkedList<Medico> colaboradores) {
+        this.colaboradores = this.colaboradores;
         this.diagnostico = diagnostico;
         this.idHistorialMedico = idHistorialMedico;
-        this.paciente = paciente;
-        this.tratamiento = tratamiento;
-        this.fechaNacimiento = fechaNacimiento;
+        this.paciente = this.paciente;
+        this.tratamiento = this.tratamiento;
+        this.fechaNacimiento = this.fechaNacimiento;
     }
 
     public LinkedList<Medico> getColaboradores() {
@@ -72,11 +72,12 @@ public class HistorialMedico {
     public String toString() {
         return "HistorialMedico{" +
                 "colaboradores=" + colaboradores +
-                ", paciente=" + paciente +
+                ", pacienteId=" + (paciente != null ? paciente.getId() : "N/A") +
                 ", idHistorialMedico='" + idHistorialMedico + '\'' +
                 ", diagnostico='" + diagnostico + '\'' +
                 ", tratamiento='" + tratamiento + '\'' +
                 ", fechaNacimiento='" + fechaNacimiento + '\'' +
                 '}';
     }
+
 }

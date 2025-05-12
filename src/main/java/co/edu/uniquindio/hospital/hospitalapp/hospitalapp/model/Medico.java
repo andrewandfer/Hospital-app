@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 public class Medico extends Persona {
@@ -107,4 +108,81 @@ public class Medico extends Persona {
                 ", sala=" + sala +
                 '}';
     }
+    public LinkedList<HistorialMedico> obtenerHistorialesPorPaciente(Paciente paciente) {
+        LinkedList<HistorialMedico> historialesPaciente = new LinkedList<>();
+        for (HistorialMedico historial : listaHistorialMedico) {
+            if (historial.getPaciente().equals(paciente)) {
+                historialesPaciente.add(historial);
+            }
+        }
+        return historialesPaciente;
+    }
+
+
+
+    //metodo para registrar Diagnostico YTratamiento
+    public void registrarDiagnosticoYTratamiento(String idHistorial, String diagnostico, String tratamiento, String fechaNacimiento, Paciente paciente) {
+        LinkedList<Medico> colaboradores = new LinkedList<>();
+        colaboradores.add(this);
+        HistorialMedico nuevoHistorial = new HistorialMedico(idHistorial, diagnostico, tratamiento, fechaNacimiento, paciente, colaboradores
+        );
+
+        this.listaHistorialMedico.add(nuevoHistorial);
+    }
+
+
+    // metodo para elimimar el horarios de consulta
+    public boolean eliminarHorarioConsulta(Horario horario) {
+        return horarioMedico.remove(horario);  // Retorna true si se eliminó, false si no estaba
+    }
+
+
+    //metodo para obtener una lista de horarios
+    public LinkedList<Horario> obtenerHorariosConsulta() {
+        return horarioMedico;  // Devuelve la lista de horarios asignados
+    }
+
+
+    public boolean verificarHorarioExistente(Horario horario) {
+        return horarioMedico.contains(horario);
+    }
+
+
+    // metodo para agregar un horario pero antes valida si el horario ya existe
+    public boolean agregarHorarioConsulta(Horario nuevoHorario) {
+        if (verificarHorarioExistente(nuevoHorario)) {
+            return false;  // El horario ya existe no lo agregamos
+        }
+        horarioMedico.add(nuevoHorario);
+        return true;
+    }
+
+
+
+    public String notificarCambioCita(Cita cita, Estado nuevoEstado, LocalDateTime nuevaFechaHora) {
+        Estado estadoAnterior = cita.getEstado();
+        LocalDateTime fechaAnterior = cita.getFechaHoraCita();
+
+        // Actualizar estado y hora si aplica
+        if (nuevaFechaHora != null) {
+            cita.setFechaHoraCita(nuevaFechaHora);
+        }
+
+        cita.setEstado(nuevoEstado);
+
+        // Generar mensaje
+        String mensaje = "Notificación de cambio:\n" +
+                "Paciente: " + cita.getPaciente().getNombre() + "\n" +
+                "Cita ID: " + cita.getIdCita() + "\n" +
+                "Estado anterior: " + estadoAnterior + "\n" +
+                "Nuevo estado: " + nuevoEstado + "\n" +
+                "Fecha anterior: " + fechaAnterior + "\n" +
+                "Nueva fecha: " + cita.getFechaHoraCita();
+
+        return mensaje;
+    }
+
+
+
+
 }

@@ -62,9 +62,11 @@ public class Cita {
         return "Cita{" +
                 "idCita='" + idCita + '\'' +
                 ", fechaHoraCita=" + fechaHoraCita +
-                ", medico=" + medico +
-                ", paciente=" + paciente +
+                ", medicoId=" + (medico != null ? medico.getId() : "N/A") +
+                ", pacienteId=" + (paciente != null ? paciente.getId() : "N/A") +
                 ", estado=" + estado +
                 '}';
     }
+
+
 }

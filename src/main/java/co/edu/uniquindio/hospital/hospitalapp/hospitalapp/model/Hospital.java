@@ -11,13 +11,23 @@ public class Hospital {
     private LinkedList<Administrador>administradoresHospital;
     private LinkedList<Paciente> Pacientes;
     private Administrador administrador;
+    private GestorCitas gestorCitas;
 
-    public Hospital(String nombre, String direccion, String nit, LinkedList<Medico> medicosHospital, Administrador administrador) {
+    public Hospital(String nombre, String direccion, String nit, LinkedList<Medico> medicosHospital, Administrador administrador, GestorCitas gestorCitas) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.nit = nit;
         this.medicosHospital = medicosHospital;
         this.administrador = administrador;
+        this.gestorCitas = gestorCitas;
+    }
+
+    public GestorCitas getGestorCitas() {
+        return gestorCitas;
+    }
+
+    public void setGestorCitas(GestorCitas gestorCitas) {
+        this.gestorCitas = gestorCitas;
     }
 
     public String getNombre() {
@@ -88,8 +98,6 @@ public class Hospital {
         return false;
     }
 
-
-
     @Override
     public String toString() {
         return "Hospital{" +
@@ -97,7 +105,10 @@ public class Hospital {
                 ", direccion='" + direccion + '\'' +
                 ", nit='" + nit + '\'' +
                 ", medicosHospital=" + medicosHospital +
+                ", administradoresHospital=" + administradoresHospital +
+                ", Pacientes=" + Pacientes +
                 ", administrador=" + administrador +
+                ", gestorCitas=" + gestorCitas +
                 '}';
     }
 }

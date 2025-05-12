@@ -1,4 +1,4 @@
-package co.edu.uniquindio.hospital.hospitalapp.hospitalapp;
+package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

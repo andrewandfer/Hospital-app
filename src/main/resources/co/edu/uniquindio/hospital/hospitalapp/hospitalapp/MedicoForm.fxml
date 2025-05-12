@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="10" style="-fx-padding: 20; -fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.MedicoFormViewController">
+<VBox alignment="CENTER" spacing="10" style="-fx-padding: 20; -fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.MedicoFormViewController">
 
     <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Administrador-Formulario de Médico" textFill="WHITE" />
 

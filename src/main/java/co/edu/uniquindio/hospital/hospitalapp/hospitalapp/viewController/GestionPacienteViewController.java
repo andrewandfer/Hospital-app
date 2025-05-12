@@ -1,4 +1,4 @@
-package co.edu.uniquindio.hospital.hospitalapp.hospitalapp;
+package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import javafx.collections.FXCollections;
@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class GestionPacienteViewController {
 

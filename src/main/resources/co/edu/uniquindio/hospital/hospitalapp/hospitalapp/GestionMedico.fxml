@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="454.0" prefWidth="746.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.GestionMedicoViewController">
+<AnchorPane prefHeight="454.0" prefWidth="746.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.GestionMedicoViewController">
    <children>
       <TableView fx:id="tablaMedicos" layoutX="92.0" layoutY="113.0" prefHeight="188.0" prefWidth="582.0">
         <columns>

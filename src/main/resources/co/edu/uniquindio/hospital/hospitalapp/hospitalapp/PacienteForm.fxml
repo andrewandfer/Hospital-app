@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="248.0" prefWidth="235.0" spacing="10" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.PacienteFormViewController">
+<VBox alignment="CENTER" prefHeight="248.0" prefWidth="235.0" spacing="10" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.PacienteFormViewController">
 
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />

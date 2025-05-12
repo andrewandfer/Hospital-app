@@ -8,4 +8,6 @@ module co.edu.uniquindio.hospital.hospitalapp.hospitalapp {
     opens co.edu.uniquindio.hospital.hospitalapp.hospitalapp to javafx.fxml;
 
     exports co.edu.uniquindio.hospital.hospitalapp.hospitalapp;
+    exports co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
+    opens co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController to javafx.fxml;
 }

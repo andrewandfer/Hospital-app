@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.MedicoViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.MedicoViewController">
    <children>
       <Button fx:id="btnGestionarHistorialMedico" layoutX="303.0" layoutY="106.0" mnemonicParsing="false" onAction="#OnGestionarHistorialMedico" prefHeight="35.0" prefWidth="264.0" text="Gestionar historiales medicos de sus pacientes" />
       <ImageView fitHeight="439.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true">

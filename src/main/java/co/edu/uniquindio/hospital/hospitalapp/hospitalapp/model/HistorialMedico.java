@@ -9,7 +9,7 @@ public class HistorialMedico {
     private String tratamiento;
     private Paciente paciente;
 
-    public HistorialMedico(LinkedList<Medico> colaboradores, String idHistorialMedico, String diagnostico, String tratamiento, Paciente paciente) {
+    public HistorialMedico(String idHistorialMedico, String diagnostico, String tratamiento, Paciente paciente) {
         this.colaboradores = colaboradores;
         this.idHistorialMedico = paciente.getId();
         this.diagnostico = diagnostico;

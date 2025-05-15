@@ -4,19 +4,17 @@ import java.util.LinkedList;
 
 public class HistorialMedico {
     private LinkedList<Medico> colaboradores;
-    private Paciente paciente;
     private String idHistorialMedico;
     private String diagnostico;
     private String tratamiento;
-    private String fechaNacimiento;
+    private Paciente paciente;
 
-    public HistorialMedico(String diagnostico, String idHistorialMedico, String tratamiento, String fechaNacimiento, Paciente paciente, LinkedList<Medico> colaboradores) {
-        this.colaboradores = this.colaboradores;
+    public HistorialMedico(LinkedList<Medico> colaboradores, String idHistorialMedico, String diagnostico, String tratamiento, Paciente paciente) {
+        this.colaboradores = colaboradores;
+        this.idHistorialMedico = paciente.getId();
         this.diagnostico = diagnostico;
-        this.idHistorialMedico = idHistorialMedico;
-        this.paciente = this.paciente;
-        this.tratamiento = this.tratamiento;
-        this.fechaNacimiento = this.fechaNacimiento;
+        this.tratamiento = tratamiento;
+        this.paciente = paciente;
     }
 
     public LinkedList<Medico> getColaboradores() {
@@ -27,12 +25,12 @@ public class HistorialMedico {
         this.colaboradores = colaboradores;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
+    public String getIdHistorialMedico() {
+        return idHistorialMedico;
     }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+    public void setIdHistorialMedico(String idHistorialMedico) {
+        this.idHistorialMedico = idHistorialMedico;
     }
 
     public String getDiagnostico() {
@@ -43,14 +41,6 @@ public class HistorialMedico {
         this.diagnostico = diagnostico;
     }
 
-    public String getIdHistorialMedico() {
-        return idHistorialMedico;
-    }
-
-    public void setIdHistorialMedico(String idHistorialMedico) {
-        this.idHistorialMedico = idHistorialMedico;
-    }
-
     public String getTratamiento() {
         return tratamiento;
     }
@@ -59,25 +49,22 @@ public class HistorialMedico {
         this.tratamiento = tratamiento;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public Paciente getPaciente() {
+        return paciente;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
-
 
     @Override
     public String toString() {
         return "HistorialMedico{" +
                 "colaboradores=" + colaboradores +
-                ", pacienteId=" + (paciente != null ? paciente.getId() : "N/A") +
                 ", idHistorialMedico='" + idHistorialMedico + '\'' +
                 ", diagnostico='" + diagnostico + '\'' +
                 ", tratamiento='" + tratamiento + '\'' +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                ", paciente=" + paciente +
                 '}';
     }
-
 }

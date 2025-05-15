@@ -9,6 +9,7 @@ public class Administrador extends Persona {
     LinkedList<Medico> medicosAdministrados;
     LinkedList<Paciente> PacienteAdministrados;
     LinkedList<Reporte> reportesAdministrados;
+    LinkedList<HistorialMedico> HistorialesMedicosAdministrados;
 
 
     public Administrador(String nombre, String apellido, String id) {
@@ -18,6 +19,7 @@ public class Administrador extends Persona {
         this.medicosAdministrados = new LinkedList<>();
         this.PacienteAdministrados = new LinkedList<>();
         this.reportesAdministrados = new LinkedList<>();
+        this.HistorialesMedicosAdministrados = new LinkedList<>();
     }
 
     public LinkedList<Reporte> getReportesAdministrados() {
@@ -149,16 +151,13 @@ public class Administrador extends Persona {
             System.out.println("- " + medico.getNombre() + " (" + medico.getEspecialidad() + "): " + estado);
         }
     }
-    public boolean asignarPaciente(Paciente paciente) {
-        for (Medico medico : medicosAdministrados) {
-            if (medico.isDisponible()) {
-                paciente.setMedicoAsignado(medico);
-                medico.asignarPaciente(paciente);
-                return true;
-            }
+    public void asignarPacienteAMedico(Paciente paciente, Medico medico) {
+        if (paciente != null && medico != null && medico.isDisponible()==true) {
+            medico.asignarPaciente(paciente);
+            paciente.setMedicoAsignado(medico);
         }
-        return false;
     }
+
     public void generarReporteCitasPorEstado(Estado estadoBuscado) {
         StringBuilder reporte = new StringBuilder("=== Citas en estado: " + estadoBuscado + " ===\n");
 
@@ -178,6 +177,15 @@ public class Administrador extends Persona {
         Paciente nuevoPaciente = new Paciente(cedula, nombre, apellido, fechaNacimiento, null);
         agregarPaciente(nuevoPaciente);
         System.out.println("Paciente registrado: " + nuevoPaciente);
+    }
+
+    public HistorialMedico consultarHistorialMedico(String cedula) {
+        for (HistorialMedico historialMedico : HistorialesMedicosAdministrados) {
+            if (historialMedico.getIdHistorialMedico().equals(cedula)) {
+                return historialMedico;
+            }
+        }
+        return null;
     }
 
 

@@ -1,8 +1,11 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class PacienteViewController{
 
@@ -35,6 +38,8 @@ public class PacienteViewController{
 
     @FXML
     void onHistorialMedico(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "PacienteHistorialMedico.fxml");
 
     }
 

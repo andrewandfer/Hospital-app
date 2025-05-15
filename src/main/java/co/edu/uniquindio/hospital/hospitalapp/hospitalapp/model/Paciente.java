@@ -82,6 +82,7 @@ public class Paciente extends Persona {
     }
     public HistorialMedico consultarHistorialMedico(Paciente paciente) {
        return paciente.getHistorialMedico();
+
     }
 
 

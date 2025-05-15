@@ -33,7 +33,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnEliminarMedico" layoutX="572.0" layoutY="336.0" mnemonicParsing="false" onAction="#OnEliminarMedico" style="-fx-background-radius: 15;" text="Borrar Medico">
+      <Button fx:id="btnEliminarMedico" layoutX="476.0" layoutY="336.0" mnemonicParsing="false" onAction="#OnEliminarMedico" style="-fx-background-radius: 15;" text="Borrar Medico">
          <effect>
             <DropShadow />
          </effect>
@@ -41,13 +41,21 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnActualizarMedico" layoutX="314.0" layoutY="336.0" mnemonicParsing="false" onAction="#OnActualizarMedico" style="-fx-background-radius: 15;" text="Actualizar Medico">
+      <Button fx:id="btnActualizarMedico" layoutX="279.0" layoutY="336.0" mnemonicParsing="false" onAction="#OnActualizarMedico" style="-fx-background-radius: 15;" text="Actualizar Medico">
          <effect>
             <DropShadow />
          </effect>
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
+      </Button>
+      <Button fx:id="btnBack" layoutX="628.0" layoutY="335.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="26.0" prefWidth="96.0" style="-fx-background-radius: 15;" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
    </children>
 </AnchorPane>

@@ -28,6 +28,15 @@ public class AdministradorViewController {
     private Button btnGestionarSalaYHorario;
 
     @FXML
+    private Button btnBack;
+    @FXML
+    void OnBack(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml");
+
+    }
+
+    @FXML
     void OnGenerarReporte(ActionEvent event) {
 
     }
@@ -55,20 +64,8 @@ public class AdministradorViewController {
 
     @FXML
     void OnGestionarPacientes(ActionEvent event) {
-        try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/GestionPaciente.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = new Stage();
-        stage.setTitle("Hospital UQ-Gestion de Pacientes");
-            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
-            stage.getIcons().add(icon);
-        stage.setScene(new Scene(root));
-        stage.show();
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "GestionPaciente.fxml");
 
     }
 

@@ -11,7 +11,7 @@ public class Paciente extends Persona {
     private Medico medicoAsignado;
     private LocalDate fechaNacimiento;
 
-    public Paciente(String nombre, String apellido, String id, LocalDate fechaNacimiento, HistorialMedico historialMedico) {
+    public Paciente(String nombre, String apellido, String id, LocalDate fechaNacimiento) {
         super(nombre, apellido, id);
         this.historialMedico = null;
         this.fechaNacimiento = fechaNacimiento;

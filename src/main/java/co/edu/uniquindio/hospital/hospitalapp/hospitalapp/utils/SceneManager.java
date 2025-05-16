@@ -1,5 +1,8 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.*;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.*;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,4 +23,27 @@ public class SceneManager {
             System.out.println("Error al cambiar de escena: " + e.getMessage());
         }
     }
+
+
+    public static void cambiarEscenaConPaciente(Stage stage, String fxml, Paciente paciente) {
+        try {
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + fxml));
+            Parent root = loader.load();
+
+            // Obtener el controlador de la nueva escena
+            HistorialMedicoViewController controller = loader.getController();
+
+            // Pasar el paciente al nuevo controlador
+            controller.mostrarPaciente(paciente);
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }

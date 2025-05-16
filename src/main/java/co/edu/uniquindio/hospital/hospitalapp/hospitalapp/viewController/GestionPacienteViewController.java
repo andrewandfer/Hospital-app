@@ -1,5 +1,7 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
+
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
@@ -50,6 +52,9 @@ public class GestionPacienteViewController {
 
     @FXML
     public void initialize() {
+
+        listaPacientes.addAll(HospitalAppApplication.hospital.getPacientes());
+
         tcId.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getId()));
         tcNombre.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getNombre()));
         tcApellido.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getApellido()));

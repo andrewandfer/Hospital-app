@@ -13,11 +13,12 @@ public class Hospital {
     private Administrador administrador;
     private GestorCitas gestorCitas;
 
-    public Hospital(String nombre, String direccion, String nit, LinkedList<Medico> medicosHospital, Administrador administrador, GestorCitas gestorCitas) {
+    public Hospital(String nombre, String direccion, String nit, Administrador administrador, GestorCitas gestorCitas) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.nit = nit;
-        this.medicosHospital = medicosHospital;
+        this.medicosHospital = new LinkedList<>();
+        this.Pacientes = new LinkedList<>();
         this.administrador = administrador;
         this.gestorCitas = gestorCitas;
     }
@@ -70,6 +71,15 @@ public class Hospital {
         this.administrador = administrador;
     }
 
+
+    public LinkedList<Paciente> getPacientes() {
+        return Pacientes;
+    }
+
+    public void setPacientes(LinkedList<Paciente> pacientes) {
+        Pacientes = pacientes;
+    }
+
     public void eliminarAdministrador(Administrador administrador) {
         administradoresHospital.remove(administrador);
     }
@@ -96,6 +106,17 @@ public class Hospital {
             }
         }
         return false;
+    }
+
+
+
+    public Paciente buscarPaciente(String idPaciente) {
+        for (Paciente paciente : Pacientes) {
+            if (paciente.getId().equals(idPaciente)) {
+                return paciente;
+            }
+        }
+        return null;
     }
 
     @Override

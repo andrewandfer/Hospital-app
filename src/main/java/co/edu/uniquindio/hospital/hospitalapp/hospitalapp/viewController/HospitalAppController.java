@@ -31,47 +31,16 @@ public class HospitalAppController {
 
     @FXML
     void onAdministrador(ActionEvent event) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/Administrador.fxml"));
-//            Parent root = loader.load();
-//
-//            Stage stage = new Stage();
-//            stage.setTitle("Administrador");
-//            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
-//            stage.getIcons().add(icon);
-//
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Administrador.fxml");
+        SceneManager.cambiarEscena(stage, "Administrador.fxml",SceneManager.getAdministrador());
 
 
     }
 
     @FXML
     void onMedico(ActionEvent event) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/Medico.fxml"));
-//            Parent root = loader.load();
-//
-//            Stage stage = new Stage();
-//            stage.setTitle("Medico");
-//            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
-//            stage.getIcons().add(icon);
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Medico.fxml");
+        SceneManager.cambiarEscena(stage, "Medico.fxml",SceneManager.getAdministrador());
 
 
 
@@ -79,23 +48,8 @@ public class HospitalAppController {
 
     @FXML
     void onPaciente(ActionEvent event) {
-//        try {
-//
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/Paciente.fxml"));
-//            Parent root = loader.load();
-//
-//            Stage stage = new Stage();
-//            stage.setTitle("Paciente");
-//            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
-//            stage.getIcons().add(icon);
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Paciente.fxml");
+        SceneManager.cambiarEscena(stage, "Paciente.fxml",SceneManager.getAdministrador());
 
     }
 }

@@ -86,12 +86,8 @@ public class Paciente extends Persona {
     }
 
 
-
     @Override
     public String toString() {
-        return "Paciente{" +
-                ", historialMedico=" + historialMedico +
-                ", citas=" + citas +
-                '}';
+        return super.toString();
     }
 }

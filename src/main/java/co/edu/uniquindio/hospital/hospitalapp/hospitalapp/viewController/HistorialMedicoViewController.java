@@ -22,7 +22,7 @@ public class HistorialMedicoViewController {
     @FXML
     void OnBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml");
+        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml",SceneManager.getAdministrador());
     }
 
     @FXML

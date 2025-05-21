@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
@@ -48,6 +49,13 @@ public class GestionPacienteViewController {
 
     private final ObservableList<Paciente> listaPacientes = FXCollections.observableArrayList();
 
+    private Administrador administrador;
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
+        listaPacientes.setAll(administrador.getPacienteAdministrados());
+    }
+
     @FXML
     public void initialize() {
         tcId.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getId()));
@@ -78,6 +86,9 @@ public class GestionPacienteViewController {
         Paciente seleccionado = tablaPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
             listaPacientes.remove(seleccionado);
+            if (administrador != null) {
+                administrador.getPacienteAdministrados().remove(seleccionado);
+            }
         } else {
             mostrarAlerta("Debes seleccionar un paciente para eliminar.");
         }
@@ -85,12 +96,18 @@ public class GestionPacienteViewController {
 
     public void agregarPacienteATabla(Paciente paciente) {
         listaPacientes.add(paciente);
+        if (administrador != null) {
+            administrador.getPacienteAdministrados().add(paciente);
+        }
     }
 
     public void actualizarPaciente(Paciente original, Paciente actualizado) {
         int index = listaPacientes.indexOf(original);
         if (index != -1) {
             listaPacientes.set(index, actualizado);
+            if (administrador != null) {
+                administrador.getPacienteAdministrados().set(index, actualizado);
+            }
         }
     }
 
@@ -130,9 +147,6 @@ public class GestionPacienteViewController {
     @FXML
     void OnBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Administrador.fxml");
-
+        SceneManager.cambiarEscena(stage, "Administrador.fxml",SceneManager.getAdministrador());
     }
-
 }
-

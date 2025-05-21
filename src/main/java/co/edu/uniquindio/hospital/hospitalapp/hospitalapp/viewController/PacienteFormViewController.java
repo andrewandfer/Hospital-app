@@ -56,7 +56,7 @@ public class PacienteFormViewController {
             return;
         }
 
-        Paciente nuevoPaciente = new Paciente(cedula, nombre, apellido, fechaNacimiento, null);
+        Paciente nuevoPaciente = new Paciente(nombre, apellido, cedula, fechaNacimiento, null);
 
         if (parentController != null) {
             if (modoEdicion && pacienteOriginal != null) {

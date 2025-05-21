@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="419.0" prefWidth="630.0">
          <children>
-            <ImageView fitHeight="422.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="456.0" fitWidth="305.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../imagenes/Captura%20de%20pantalla%202025-05-07%20203213.png" />
                </image>
@@ -42,7 +42,17 @@
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
-            <Button fx:id="btnBack" layoutX="14.0" layoutY="381.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 15;" text="Back" />
+            <Button fx:id="btnBack" layoutX="14.0" layoutY="408.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 15;" text="Back" />
+            <Button fx:id="btnDisponibilidadMedicos" layoutX="378.0" layoutY="358.0" mnemonicParsing="false" onAction="#OnCambiarDisponibilidad" prefHeight="35.0" prefWidth="166.0" text="DisponibilidadMedicos">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAsignarMedico" layoutX="378.0" layoutY="416.0" mnemonicParsing="false" onAction="#OnAsignarMedico" prefHeight="35.0" prefWidth="166.0" text="AsignarMedico">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

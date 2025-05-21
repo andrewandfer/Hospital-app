@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
@@ -44,8 +45,15 @@ public class AsignarPacienteMedicoViewController {
         this.administrador = administrador;
         listaPacientes.setAll(administrador.getPacienteAdministrados());
     }
+
+
+
     @FXML
     public void initialize() {
+
+        listaPacientes.addAll(HospitalAppApplication.hospital.getPacientes());
+        listaMedicos.addAll(HospitalAppApplication.hospital.getMedicosHospital());
+
 
         colNombreMedico.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colEspecialidad.setCellValueFactory(new PropertyValueFactory<>("especialidad"));
@@ -63,6 +71,11 @@ public class AsignarPacienteMedicoViewController {
                 tablaMedicos.getSelectionModel().selectedItemProperty().isNull()
                         .or(tablaPacientes.getSelectionModel().selectedItemProperty().isNull())
         );
+
+
+        tablaPacientes.setItems(listaPacientes);
+        tablaMedicos.setItems(listaMedicos);
+
     }
 
     private void cargarDatosDesdeAdministrador() {

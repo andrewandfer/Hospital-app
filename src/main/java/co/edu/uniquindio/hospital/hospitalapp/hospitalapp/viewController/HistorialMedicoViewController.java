@@ -33,7 +33,7 @@ public class HistorialMedicoViewController {
         System.out.println("Volviendo atrás...");
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Paciente.fxml", SceneManager.getAdministradorActual());
+        SceneManager.cambiarEscena(stage, "PacienteHistorialMedico.fxml", SceneManager.getAdministradorActual());
     }
 
 
@@ -68,7 +68,7 @@ public class HistorialMedicoViewController {
         System.out.println("Volviendo atrás...");
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "PacienteHistorialMedico.fxml", SceneManager.getAdministradorActual());
+        SceneManager.cambiarEscena(stage, "Paciente.fxml", SceneManager.getAdministradorActual());
     }
 
     public void mostrarPaciente(Paciente paciente) {

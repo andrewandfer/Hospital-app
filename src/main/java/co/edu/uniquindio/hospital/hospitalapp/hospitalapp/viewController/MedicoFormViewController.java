@@ -58,12 +58,12 @@ public class MedicoFormViewController {
             return;
         }
         Sala sala=new Sala("1","juan","112",true);
-        Medico nuevoMedico = new Medico(id, nombre, apellido, consultorio, especialidad, numLicencia,sala,true);
+        Medico nuevoMedico = new Medico(id, nombre, apellido, consultorio, especialidad, numLicencia,true);
 
         if (modoEdicion && medicoOriginal != null && parentController != null) {
             parentController.actualizarMedico(medicoOriginal, nuevoMedico);
         } else if (parentController != null) {
-            parentController.agregarMedicoATabla(nuevoMedico);
+            parentController.agregarMedicoSistema(nuevoMedico);
         }
 
         Stage stage = (Stage) txtId.getScene().getWindow();

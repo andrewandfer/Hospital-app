@@ -27,7 +27,7 @@ public class PacienteViewController{
     @FXML
     void onActualizarDatos(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "ActualizarDatosConsultar.fxml");
+        SceneManager.cambiarEscena(stage, "ActualizarDatosConsultar.fxml", SceneManager.getAdministradorActual());
 
     }
 
@@ -40,7 +40,7 @@ public class PacienteViewController{
     @FXML
     void onHistorialMedico(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "PacienteHiatorialMedico.fxml", SceneManager.getAdministradorActual());
+        SceneManager.cambiarEscena(stage, "PacienteHistorialMedico.fxml", SceneManager.getAdministradorActual());
 
 
     }

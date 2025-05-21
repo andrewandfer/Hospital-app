@@ -14,12 +14,12 @@ public class Medico extends Persona {
     private boolean disponible;
     private LinkedList<Paciente> pacientesAsignados;
 
-    public Medico(String nombre, String apellido, String id, String especialidad, String consultorio, String numLicencia, Sala sala,boolean disponible) {
+    public Medico(String nombre, String apellido, String id, String especialidad, String consultorio, String numLicencia, boolean disponible) {
         super(nombre, apellido, id);
         this.especialidad = especialidad;
         this.consultorio = consultorio;
         this.numLicencia = numLicencia;
-        this.sala = sala;
+
         this.disponible = disponible;
         this.horarioMedico = new LinkedList<>();
         this.listaHistorialMedico = new LinkedList<>();

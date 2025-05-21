@@ -3,7 +3,7 @@ package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.*;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class GestionPacienteViewController {
+
+    private Hospital hospital;
 
     @FXML
     private Button btnActualizarPaciente;
@@ -69,6 +71,11 @@ public class GestionPacienteViewController {
     void OnRegistrarPaciente(ActionEvent event) {
         abrirFormularioPaciente(false, null);
     }
+
+    public void agregarPacienteSistema(Paciente paciente){
+        HospitalAppApplication.hospital.getPacientes().add(paciente);
+    }
+
 
     @FXML
     void OnActualizarPaciente(ActionEvent event) {

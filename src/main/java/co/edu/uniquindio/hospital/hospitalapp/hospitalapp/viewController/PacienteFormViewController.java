@@ -62,7 +62,7 @@ public class PacienteFormViewController {
             if (modoEdicion && pacienteOriginal != null) {
                 parentController.actualizarPaciente(pacienteOriginal, nuevoPaciente);
             } else {
-                parentController.agregarPacienteATabla(nuevoPaciente);
+                parentController.agregarPacienteSistema(nuevoPaciente);
             }
         }
 

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
@@ -68,6 +69,9 @@ public class GestionMedicoViewController implements ControladorConAdministrador{
     }
     @FXML
     public void initialize() {
+
+        listaMedico.addAll(HospitalAppApplication.hospital.getMedicosHospital());
+
         tcId.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getId()));
         tcNombre.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getNombre()));
         tcApellido.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getApellido()));
@@ -179,6 +183,10 @@ public class GestionMedicoViewController implements ControladorConAdministrador{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void agregarMedicoSistema(Medico medico){
+        HospitalAppApplication.hospital.agregarMedico(medico);
     }
 
     private void cargarDatos() {

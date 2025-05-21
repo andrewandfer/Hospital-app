@@ -30,6 +30,10 @@ public class HospitalAppApplication extends Application {
 
         hospital.getPacientes().add(pacientePrueba);
 
+        Medico medicoPrueba = new Medico("Raul", "Gomez", "medico1", "nada", "D401",
+                "000", true);
+
+        hospital.getMedicosHospital().add(medicoPrueba);
     }
 
 

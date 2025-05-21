@@ -32,7 +32,7 @@ public class HospitalAppController {
     @FXML
     void onAdministrador(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Administrador.fxml",SceneManager.getAdministrador());
+        SceneManager.cambiarEscena(stage, "Administrador.fxml",SceneManager.getAdministradorActual());
 
 
     }
@@ -40,7 +40,7 @@ public class HospitalAppController {
     @FXML
     void onMedico(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Medico.fxml",SceneManager.getAdministrador());
+        SceneManager.cambiarEscena(stage, "Medico.fxml",SceneManager.getAdministradorActual());
 
 
 
@@ -49,7 +49,7 @@ public class HospitalAppController {
     @FXML
     void onPaciente(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Paciente.fxml",SceneManager.getAdministrador());
+        SceneManager.cambiarEscena(stage, "Paciente.fxml",SceneManager.getAdministradorActual());
 
     }
 }

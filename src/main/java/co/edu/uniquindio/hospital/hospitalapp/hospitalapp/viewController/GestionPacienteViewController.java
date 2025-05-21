@@ -2,6 +2,7 @@ package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
@@ -16,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.font.TextHitInfo;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -135,9 +137,10 @@ public class GestionPacienteViewController {
     @FXML
     void OnBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Administrador.fxml");
+        SceneManager.cambiarEscena(stage, "Administrador.fxml", SceneManager.getAdministradorActual());
 
     }
+
 
 }
 

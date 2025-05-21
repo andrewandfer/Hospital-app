@@ -42,7 +42,7 @@ public class AdministradorViewController {
     @FXML
     void OnAsignarMedico(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "AsignarPacienteMedico.fxml",SceneManager.getAdministrador());
+        SceneManager.cambiarEscena(stage, "AsignarPacienteMedico.fxml",SceneManager.getAdministradorActual());
 
     }
 
@@ -51,7 +51,7 @@ public class AdministradorViewController {
     @FXML
     void OnBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml",SceneManager.getAdministrador());
+        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml",SceneManager.getAdministradorActual());
 
     }
 
@@ -63,7 +63,7 @@ public class AdministradorViewController {
     @FXML
     void OnGestionarMedicos(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "GestionMedico.fxml",SceneManager.getAdministrador());
+        SceneManager.cambiarEscena(stage, "GestionMedico.fxml",SceneManager.getAdministradorActual());
 
     }
 
@@ -75,7 +75,7 @@ public class AdministradorViewController {
 
             // Obtener el controlador y pasarle el administrador
             GestionPacienteViewController controller = loader.getController();
-            controller.setAdministrador(SceneManager.getAdministrador()); // ✅ Esta es la clave
+            // ✅ Esta es la clave
 
             // Cambiar escena
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

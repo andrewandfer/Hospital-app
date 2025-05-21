@@ -7,8 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import static co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager.getAdministrador;
-
 public class PacienteViewController{
 
     @FXML
@@ -41,7 +39,7 @@ public class PacienteViewController{
     @FXML
     void onHistorialMedico(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "PacienteHiatorialMedico.fxml", SceneManager.getAdministrador());
+        SceneManager.cambiarEscena(stage, "PacienteHiatorialMedico.fxml", SceneManager.getAdministradorActual());
 
 
     }

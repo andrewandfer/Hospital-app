@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -118,6 +119,17 @@ public class Hospital {
         }
         return null;
     }
+    public boolean actualizarDatosPaciente(String idPaciente, String nuevoNombre, String nuevoApellido, LocalDate nuevaFechaNacimiento) {
+        for (Paciente paciente :Pacientes) {
+            if (paciente.getId().equals(idPaciente)) {
+                paciente.actualizarDatos(nuevoNombre, nuevoApellido, nuevaFechaNacimiento);
+                return true;
+            }
+        }
+        return false; // No se encontró el paciente
+    }
+
+
 
     @Override
     public String toString() {
@@ -133,6 +145,5 @@ public class Hospital {
                 '}';
     }
 }
-
 
 

@@ -19,6 +19,7 @@ public class Paciente extends Persona {
         this.medicoAsignado = null;
     }
 
+
     public HistorialMedico getHistorialMedico() {
         return historialMedico;
     }
@@ -87,6 +88,8 @@ public class Paciente extends Persona {
 
 
 
+
+
     @Override
     public String toString() {
         return "Paciente{" +
@@ -94,4 +97,7 @@ public class Paciente extends Persona {
                 ", citas=" + citas +
                 '}';
     }
-}
+
+    }
+
+

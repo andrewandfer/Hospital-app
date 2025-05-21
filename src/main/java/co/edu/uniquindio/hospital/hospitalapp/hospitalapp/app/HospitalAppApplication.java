@@ -24,7 +24,7 @@ public class HospitalAppApplication extends Application {
     public void cargarDatos() {
 
 
-        Paciente pacientePrueba = new Paciente("Cristian", "Gonzalez", "123456789", LocalDate.now());
+        Paciente pacientePrueba = new Paciente("Cristian", "Gonzalez", "123456789", LocalDate.of(2006, 07, 22));
         HistorialMedico historialMedicoPrueba = new HistorialMedico("Historial0", "Gripa", "Nada", pacientePrueba);
         pacientePrueba.setHistorialMedico(historialMedicoPrueba);
 

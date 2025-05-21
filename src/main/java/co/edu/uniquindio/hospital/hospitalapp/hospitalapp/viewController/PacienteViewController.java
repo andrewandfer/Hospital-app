@@ -26,7 +26,8 @@ public class PacienteViewController{
 
     @FXML
     void onActualizarDatos(ActionEvent event) {
-        
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "ActualizarDatosConsultar.fxml");
 
     }
 

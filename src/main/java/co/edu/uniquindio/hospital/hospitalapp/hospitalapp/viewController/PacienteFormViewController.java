@@ -56,7 +56,7 @@ public class PacienteFormViewController {
             return;
         }
 
-        Paciente nuevoPaciente = new Paciente(cedula, nombre, apellido, fechaNacimiento);
+        Paciente nuevoPaciente = new Paciente(nombre, apellido, cedula, fechaNacimiento);
 
         if (parentController != null) {
             if (modoEdicion && pacienteOriginal != null) {
@@ -65,6 +65,8 @@ public class PacienteFormViewController {
                 parentController.agregarPacienteATabla(nuevoPaciente);
             }
         }
+
+
 
         // Cierra la ventana
         txtCedula.getScene().getWindow().hide();

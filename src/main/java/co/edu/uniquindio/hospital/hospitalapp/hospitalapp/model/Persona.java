@@ -1,5 +1,7 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model;
 
+import java.time.LocalDate;
+
 public  abstract class  Persona {
     private String nombre;
     private String apellido;
@@ -44,6 +46,15 @@ public  abstract class  Persona {
                 ", id='" + id ;
     }
 
+    public void actualizarDatos(String nuevoNombre, String nuevoApellido, LocalDate nuevaFechaNacimiento) {
+        if (nuevoNombre != null && !nuevoNombre.isBlank()) {
+            setNombre(nuevoNombre);
+        }
+        if (nuevoApellido != null && !nuevoApellido.isBlank()) {
+            setApellido(nuevoApellido);
+        }
+    }
 
 
-}
+    }
+

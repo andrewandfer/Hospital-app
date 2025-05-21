@@ -12,7 +12,7 @@ import java.io.IOException;
 //Este metodo nos permite cambiar entre interfaces sin necesidad de estarlas cerrando y abriendo
 //Cada vez que necesitamos
 public class SceneManager {
-    public static void cambiarEscena(Stage stage, String rutaFXML) {
+    public static void cambiarEscena(Stage stage, String rutaFXML, Administrador administradorActual) {
         try {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/"+rutaFXML));
             Parent root = loader.load();
@@ -42,8 +42,17 @@ public class SceneManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+    private static Administrador administradorActual;
+
+    public static Administrador getAdministradorActual() {
+        return administradorActual;
     }
 
+    public static void setAdministradorActual(Administrador administrador) {
+        administradorActual = administrador;
+    }
 
 
 }

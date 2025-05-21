@@ -1,5 +1,7 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Sala;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,11 +30,28 @@ public class AdministradorViewController {
     private Button btnGestionarSalaYHorario;
 
     @FXML
+    private Button btnAsignarMedico;
+
+    @FXML
+    private Button btnDisponibilidadMedicos;
+
+    @FXML
+    void OnCambiarDisponibilidad(ActionEvent event) {
+
+    }
+    @FXML
+    void OnAsignarMedico(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "AsignarPacienteMedico.fxml",SceneManager.getAdministradorActual());
+
+    }
+
+    @FXML
     private Button btnBack;
     @FXML
     void OnBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml");
+        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml",SceneManager.getAdministradorActual());
 
     }
 
@@ -43,35 +62,43 @@ public class AdministradorViewController {
 
     @FXML
     void OnGestionarMedicos(ActionEvent event) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/GestionMedico.fxml"));
-//            Parent root = loader.load();
-//
-//            Stage stage = new Stage();
-//            stage.setTitle("Hospital UQ-Administrador-GestionMedicos");
-//            Image icon = new Image(getClass().getResourceAsStream("/imagenes/logo.png"));
-//            stage.getIcons().add(icon);
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "GestionMedico.fxml");
+        SceneManager.cambiarEscena(stage, "GestionMedico.fxml",SceneManager.getAdministradorActual());
 
     }
 
     @FXML
     void OnGestionarPacientes(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "GestionPaciente.fxml");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/GestionPaciente.fxml"));
+            Parent root = loader.load();
 
+            // Obtener el controlador y pasarle el administrador
+            GestionPacienteViewController controller = loader.getController();
+            // ✅ Esta es la clave
+
+            // Cambiar escena
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Gestión de Pacientes");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     void OnGestionarSalaYHorarios(ActionEvent event) {
 
     }
+    private Administrador administrador;
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
+
+    }
+
 
 }

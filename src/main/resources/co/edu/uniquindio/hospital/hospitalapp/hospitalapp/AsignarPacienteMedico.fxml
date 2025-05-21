@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.AsignarPacienteMedicoViewController">
+
+    <top>
+        <Label style="-fx-font-size: 22px; -fx-padding: 15 0 10 0; -fx-font-weight: bold;" text="Asignación de Pacientes a Médicos" textFill="#f4f2f2" BorderPane.alignment="CENTER" />
+    </top>
+
+    <center>
+        <HBox spacing="40" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Médicos Disponibles" textFill="#fffdfd" />
+                <TableView fx:id="tablaMedicos" prefHeight="320" prefWidth="385.0">
+                    <columns>
+                        <TableColumn fx:id="colNombreMedico" prefWidth="130" text="Nombre" />
+                        <TableColumn fx:id="colEspecialidad" prefWidth="130" text="Especialidad" />
+                        <TableColumn fx:id="colDisponible" prefWidth="120" text="Disponible" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Pacientes sin Médico Asignado" textFill="#faf6f6" />
+                <TableView fx:id="tablaPacientes" prefHeight="320" prefWidth="354.0">
+                    <columns>
+                        <TableColumn fx:id="colNombrePaciente" prefWidth="200" text="Nombre" />
+                        <TableColumn fx:id="colIdPaciente" prefWidth="180" text="ID" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+            <Button fx:id="btnAsignar" disable="true" onAction="#onAsignar" style="-fx-font-size: 14px; -fx-padding: 10 20; -fx-background-color: #2c7fb8; -fx-text-fill: white; -fx-background-radius: 8;" text="Asignar Paciente Seleccionado" />
+        </HBox>
+    </bottom>
+</BorderPane>

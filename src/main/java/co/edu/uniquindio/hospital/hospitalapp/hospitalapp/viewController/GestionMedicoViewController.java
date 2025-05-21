@@ -1,12 +1,15 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,9 +18,11 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-public class GestionMedicoViewController {
+public class GestionMedicoViewController implements ControladorConAdministrador{
 
     @FXML
     private Button btnActualizarMedico;
@@ -54,6 +59,13 @@ public class GestionMedicoViewController {
 
     private final ObservableList<Medico> listaMedico = FXCollections.observableArrayList();
 
+    private Administrador administrador;
+
+    @Override
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
+        cargarDatos();
+    }
     @FXML
     public void initialize() {
         tcId.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getId()));
@@ -107,7 +119,8 @@ public class GestionMedicoViewController {
             Parent root = loader.load();
 
             MedicoFormViewController controller = loader.getController();
-            controller.setParentController(this);
+            controller.setParentController(this);  // para que pueda agregar a la tabla
+            controller.setAdministrador(administrador); // PASAR administrador
 
             if (editar && medico != null) {
                 controller.setModoEdicion(true, medico);
@@ -123,14 +136,21 @@ public class GestionMedicoViewController {
         }
     }
 
+
     public void agregarMedicoATabla(Medico medico) {
         listaMedico.add(medico);
+        if (administrador != null) {
+            administrador.getMedicosAdministrados().add(medico);
+        }
     }
 
     public void actualizarMedico(Medico original, Medico actualizado) {
         int indice = listaMedico.indexOf(original);
         if (indice >= 0) {
             listaMedico.set(indice, actualizado);
+            if (administrador != null) {
+                administrador.getMedicosAdministrados().add(actualizado);
+            }
         }
     }
 
@@ -145,8 +165,32 @@ public class GestionMedicoViewController {
     }
     @FXML
     void OnBack(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Administrador.fxml");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/Administrador.fxml"));
+            Parent root = loader.load();
 
+            // Obtener el controlador y pasarle el administrador
+            AdministradorViewController controller = loader.getController();
+            controller.setAdministrador(this.administrador);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    private void cargarDatos() {
+        if (administrador != null) {
+            List<Medico> medicosDisponibles = administrador.getMedicosAdministrados()
+                    .stream()
+                    .filter(Medico::isDisponible)
+                    .collect(Collectors.toList());
+
+            tablaMedicos.setItems(FXCollections.observableArrayList(medicosDisponibles));
+        }
+    }
+
+
 }

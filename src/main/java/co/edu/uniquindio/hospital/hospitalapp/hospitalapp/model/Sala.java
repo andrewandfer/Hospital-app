@@ -10,7 +10,7 @@ public class Sala {
         this.idSala = idSala;
         this.nombre = nombre;
         this.capacidad = capacidad;
-        this.disponibilidad = especialidad;
+        this.disponibilidad = disponibilidad;
     }
 
     public String getIdSala() {

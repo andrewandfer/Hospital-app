@@ -1,45 +1,49 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils;
 
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.ControladorConAdministrador;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.*;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.*;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
+//Este metodo nos permite cambiar entre interfaces sin necesidad de estarlas cerrando y abriendo
+//Cada vez que necesitamos
 public class SceneManager {
-
-    private static Administrador administrador;
-
-    public static void setAdministrador(Administrador admin) {
-        administrador = admin;
-    }
-
-    public static Administrador getAdministrador() {
-        return administrador;
-    }
-
-    public static void cambiarEscena(Stage stage, String fxmlPath, Administrador administrador) {
+    public static void cambiarEscena(Stage stage, String rutaFXML) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + fxmlPath));
-            Parent root = fxmlLoader.load();
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/"+rutaFXML));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error al cambiar de escena: " + e.getMessage());
+        }
+    }
 
-            Object controller = fxmlLoader.getController();
 
-            if (controller instanceof ControladorConAdministrador) {
-                ((ControladorConAdministrador) controller).setAdministrador(administrador);
-            }
+    public static void cambiarEscenaConPaciente(Stage stage, String fxml, Paciente paciente) {
+        try {
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + fxml));
+            Parent root = loader.load();
 
-            stage.setScene(new Scene(root));
+            // Obtener el controlador de la nueva escena
+            HistorialMedicoViewController controller = loader.getController();
+
+            // Pasar el paciente al nuevo controlador
+            controller.mostrarPaciente(paciente);
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public Administrador getAdmin() {
-        return administrador;
-    }
+
+
 
 }

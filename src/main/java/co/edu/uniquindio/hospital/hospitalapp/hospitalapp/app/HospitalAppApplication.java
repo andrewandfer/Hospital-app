@@ -1,7 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app;
 
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,19 +8,39 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class HospitalAppApplication extends Application {
 
-    Administrador administrador = new Administrador("Admin", "Principal", "admin1");
+
+    public static GestorCitas gestorCitas = new GestorCitas();
+
+    public static Administrador admin = new Administrador("Carlos", "Gonzales", "0000");
+
+    public static Hospital hospital = new Hospital("UQ", "Mi casa", "x", admin, gestorCitas);
+
+
+    public void cargarDatos() {
+
+
+        Paciente pacientePrueba = new Paciente("Cristian", "Gonzalez", "123456789", LocalDate.now());
+        HistorialMedico historialMedicoPrueba = new HistorialMedico("Historial0", "Gripa", "Nada", pacientePrueba);
+        pacientePrueba.setHistorialMedico(historialMedicoPrueba);
+
+        hospital.getPacientes().add(pacientePrueba);
+
+    }
+
 
     @Override
     public void start(Stage stage) throws IOException {
-        // 🔥 Aquí registras el administrador para acceso global
-        SceneManager.setAdministrador(administrador);
 
+        cargarDatos();
         FXMLLoader fxmlLoader = new FXMLLoader(HospitalAppApplication.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/hospitalapp-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+
+
 
         stage.getIcons().add(new Image(Objects.requireNonNull(
                 getClass().getResourceAsStream("/imagenes/logo.png")
@@ -32,7 +51,11 @@ public class HospitalAppApplication extends Application {
         stage.show();
     }
 
+
     public static void main(String[] args) {
+
+
+
         launch();
     }
 }

@@ -174,7 +174,7 @@ public class Administrador extends Persona {
 
 
     public void registrarPaciente(String cedula, String nombre, String apellido, LocalDate fechaNacimiento) {
-        Paciente nuevoPaciente = new Paciente(cedula, nombre, apellido, fechaNacimiento, null);
+        Paciente nuevoPaciente = new Paciente(cedula, nombre, apellido, fechaNacimiento);
         agregarPaciente(nuevoPaciente);
         System.out.println("Paciente registrado: " + nuevoPaciente);
     }

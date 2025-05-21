@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="306.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.HistorialMedicoViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="214.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.HistorialMedicoViewController">
    <children>
-      <TextField layoutX="24.0" layoutY="59.0" prefHeight="25.0" prefWidth="257.0" promptText="ID Historial" />
-      <Label layoutX="99.0" layoutY="14.0" prefHeight="25.0" prefWidth="111.0" text="Historial medico" textAlignment="CENTER" textFill="#f5efef">
+      <TextField fx:id="text_field_cedulaHistorial" layoutX="28.0" layoutY="51.0" prefHeight="25.0" prefWidth="156.0" promptText="Ingrese su celula " />
+      <Label layoutX="52.0" layoutY="14.0" prefHeight="25.0" prefWidth="111.0" text="Historial medico" textAlignment="CENTER" textFill="#f5efef">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="24.0" layoutY="91.0" prefHeight="25.0" prefWidth="257.0" promptText="Diagnostico" />
-      <TextField layoutX="24.0" layoutY="126.0" prefHeight="25.0" prefWidth="257.0" promptText="Tratamiento " />
-      <DatePicker layoutX="24.0" layoutY="160.0" prefHeight="19.0" prefWidth="257.0" promptText="Fecha de nacimiento" />
-      <Button layoutX="75.0" layoutY="201.0" mnemonicParsing="false" text="Consultar Historial medico" />
-      <Button fx:id="btnBack" layoutX="243.0" layoutY="238.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="18.0" prefWidth="49.0" style="-fx-background-radius: 15;" text="Back" />
+      <Button fx:id="buton_consultarHistorial" layoutX="29.0" layoutY="90.0" mnemonicParsing="false" onAction="#onMostrarHistorial" text="Consultar Historial medico" />
+      <Button fx:id="btnBackConsultar" layoutX="160.0" layoutY="165.0" mnemonicParsing="false" onAction="#OnBackConsultar" prefHeight="18.0" prefWidth="49.0" style="-fx-background-radius: 15;" text="Back" />
    </children>
 </AnchorPane>

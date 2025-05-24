@@ -44,6 +44,7 @@ public class GestionarDisponibilidadMedicosViewController {
     @FXML
     public void initialize() {
         listaMedico.addAll(HospitalAppApplication.hospital.getMedicosHospital());
+        tablaMedicos.setItems(listaMedico);
         colNombre.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getNombre()));
         colEspecialidad.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getEspecialidad()));
         colDisponibilidad.setCellValueFactory(data -> new javafx.beans.property.ReadOnlyObjectWrapper<>(data.getValue().isDisponible()));
@@ -51,8 +52,15 @@ public class GestionarDisponibilidadMedicosViewController {
     }
 
     @FXML
-    private void onCambiarDisponibilidad(ActionEvent event) {
-        // Lógica para cambiar la disponibilidad del médico
+    private void OnCambiarDisponibilidad(ActionEvent event) {
+        Medico medicoSeleccionado = tablaMedicos.getSelectionModel().getSelectedItem();
+
+        if (medicoSeleccionado != null) {
+            medicoSeleccionado.setDisponible(!medicoSeleccionado.isDisponible());
+            tablaMedicos.refresh();
+        } else {
+            mostrarAlerta("Error al cambiar la disponibilidad del medico.", Alert.AlertType.ERROR);
+        }
     }
 
     private void mostrarAlerta(String mensaje, Alert.AlertType tipo) {
@@ -67,8 +75,10 @@ public class GestionarDisponibilidadMedicosViewController {
     }
 
     @FXML
-    private void onActualizar(ActionEvent event) {
-        // Lógica para actualizar la tabla
+    private void OnActualizarTabla(ActionEvent event) {
+        listaMedico.clear();
+        listaMedico.addAll(HospitalAppApplication.hospital.getMedicosHospital());
+        tablaMedicos.refresh();
     }
 
     @FXML

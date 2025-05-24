@@ -26,13 +26,13 @@
             </columns>
         </TableView>
 
-        <Button fx:id="btnCambiarDisponibilidad" layoutX="75.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Cambiar Disponibilidad">
+        <Button fx:id="btnCambiarDisponibilidad" layoutX="75.0" layoutY="360.0" mnemonicParsing="false" onAction="#OnCambiarDisponibilidad" style="-fx-background-radius: 15;" text="Cambiar Disponibilidad">
             <effect>
                 <DropShadow />
             </effect>
         </Button>
 
-        <Button fx:id="btnActualizar" layoutX="275.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Actualizar Tabla">
+        <Button fx:id="btnActualizar" layoutX="275.0" layoutY="360.0" mnemonicParsing="false" onAction="#OnActualizarTabla" style="-fx-background-radius: 15;" text="Actualizar Tabla">
             <effect>
                 <DropShadow />
             </effect>

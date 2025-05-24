@@ -4,11 +4,15 @@ import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplica
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class AsignarPacienteMedicoViewController {
 
@@ -35,6 +39,8 @@ public class AsignarPacienteMedicoViewController {
 
     @FXML
     private Button btnAsignar;
+    @FXML
+    private Button btnBack;
 
     private ObservableList<Medico> listaMedicos = FXCollections.observableArrayList();
     private ObservableList<Paciente> listaPacientes = FXCollections.observableArrayList();
@@ -106,5 +112,10 @@ public class AsignarPacienteMedicoViewController {
         } else {
             System.out.println("Debe seleccionar un médico disponible y un paciente");
         }
+    }
+    @FXML
+    void OnBack(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "Administrador.fxml", SceneManager.getAdministradorActual());
     }
 }

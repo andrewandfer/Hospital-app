@@ -25,6 +25,15 @@ public class PacienteViewController{
     private Button btnSolicitarCitas;
 
     @FXML
+    private Button btn_back;
+
+    @FXML
+    void onBack(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml", SceneManager.getAdministradorActual());
+    }
+
+    @FXML
     void onActualizarDatos(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         SceneManager.cambiarEscena(stage, "ActualizarDatosConsultar.fxml", SceneManager.getAdministradorActual());

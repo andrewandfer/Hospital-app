@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 
 
 import java.awt.*;
+import java.time.LocalDate;
 
 public class ActualizarDatosConsultarViewController {
     @FXML
@@ -26,23 +27,54 @@ public class ActualizarDatosConsultarViewController {
     @FXML
     private TextField txtId;
 
+    Paciente pacienteActualizar;
+
+
     @FXML
     void OnConsultar(ActionEvent event) {
-
-        if(txtId.getText() == ""){
+        if (txtId.getText().isEmpty()) {
             mostrarAlerta("Por favor, ingrese un ID");
+            return;
         }
-        for(Paciente paciente : HospitalAppApplication.hospital.getPacientes()){
-            if(paciente.getId().equals(txtId.getText())){
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                SceneManager.cambiarEscena(stage, "ActualizarDatosPaciente.fxml", SceneManager.getAdministradorActual());
 
+        for (Paciente paciente : HospitalAppApplication.hospital.getPacientes()) {
+            if (paciente.getId().equals(txtId.getText())) {
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                // Nueva forma: pasar el paciente directamente
+                SceneManager.cambiarEscenaConDatos(stage, "ActualizarDatosPaciente.fxml", SceneManager.getAdministradorActual(), paciente);
                 return;
-            } else{
-                mostrarAlerta("No se ncontró el paciente");
             }
         }
+
+        mostrarAlerta("No se encontró el paciente");
     }
+
+    public void setPacienteActualizar(Paciente paciente) {
+        this.pacienteActualizar = paciente;
+
+        if (txt_apellidoActualizado != null) {
+            txt_apellidoActualizado.setText(paciente.getApellido());
+        }
+
+        if (txt_nombreActualizado != null) {
+            txt_nombreActualizado.setText(paciente.getNombre());
+        }
+
+        if (date_fechaActualizada != null && paciente.getFechaNacimiento() != null) {
+            date_fechaActualizada.setValue(paciente.getFechaNacimiento());
+        }
+    }
+
+    @FXML
+    public void initialize() {
+        if (pacienteActualizar != null && txt_apellidoActualizado != null) {
+            txt_apellidoActualizado.setText(pacienteActualizar.getApellido());
+            txt_nombreActualizado.setText(pacienteActualizar.getNombre());
+        }
+    }
+
 
     @FXML
     void OnBack(ActionEvent event) {
@@ -64,9 +96,27 @@ public class ActualizarDatosConsultarViewController {
     @FXML
     private TextField txt_nombreActualizado;
 
+
+//    pacienteActualizar.setNombre(nombreNuevo);
+//        pacienteActualizar.setApellido(apellidoNuevo);
+//        pacienteActualizar.setFechaNacimiento(fechaNueva);
+
+
     @FXML
     void onActualizarPaciente(ActionEvent event) {
 
+        String idPaciente = pacienteActualizar.getId();
+        String nombreNuevo = txt_nombreActualizado.getText();
+        String apellidoNuevo = txt_apellidoActualizado.getText();
+        LocalDate fechaNueva = date_fechaActualizada.getValue();
+
+        HospitalAppApplication.hospital.actualizarDatosPaciente(idPaciente, nombreNuevo, apellidoNuevo, fechaNueva);
+
+        mostrarAlerta("Datos actualizados correctamente");
+
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "Paciente.fxml", SceneManager.getAdministradorActual());
     }
 
     private void mostrarAlerta(String mensaje) {

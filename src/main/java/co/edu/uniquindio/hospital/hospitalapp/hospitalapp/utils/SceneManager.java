@@ -24,6 +24,28 @@ public class SceneManager {
         }
     }
 
+    public static void cambiarEscenaConDatos(Stage stage, String rutaFXML, Administrador administradorActual, Paciente paciente) {
+        try {
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + rutaFXML));
+            Parent root = loader.load();
+
+            // Obtener el nuevo controlador y pasarle el paciente si se puede
+            Object controller = loader.getController();
+
+            // Verificar si el controlador tiene el método "setPacienteActualizar"
+            if (controller instanceof ActualizarDatosConsultarViewController) {
+                ((ActualizarDatosConsultarViewController) controller).setPacienteActualizar(paciente);
+            }
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            System.out.println("Error al cambiar de escena: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     public static void cambiarEscenaConPaciente(Stage stage, String fxml, Paciente paciente) {
         try {
@@ -44,6 +66,8 @@ public class SceneManager {
         }
 
     }
+
+
     private static Administrador administradorActual;
 
     public static Administrador getAdministradorActual() {

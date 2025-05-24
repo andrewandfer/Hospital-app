@@ -126,7 +126,7 @@ public class Hospital {
                 return true;
             }
         }
-        return false; // No se encontró el paciente
+        return false;
     }
 
 

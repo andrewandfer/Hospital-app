@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="650.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.GestionarDisponibilidadMedicosViewController">
+
+    <children>
+
+        <Label layoutX="100.0" layoutY="25.0" text="Gestión de Disponibilidad de Médicos" textFill="#FAF7F7">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="tablaMedicos" layoutX="75.0" layoutY="80.0" prefHeight="250.0" prefWidth="500.0">
+            <columns>
+                <TableColumn fx:id="colNombre" prefWidth="160.0" text="Nombre" />
+                <TableColumn fx:id="colEspecialidad" prefWidth="200.0" text="Especialidad" />
+                <TableColumn fx:id="colDisponibilidad" prefWidth="130.0" text="Disponible" />
+            </columns>
+        </TableView>
+
+        <Button fx:id="btnCambiarDisponibilidad" layoutX="75.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Cambiar Disponibilidad">
+            <effect>
+                <DropShadow />
+            </effect>
+        </Button>
+
+        <Button fx:id="btnActualizar" layoutX="275.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-radius: 15;" text="Actualizar Tabla">
+            <effect>
+                <DropShadow />
+            </effect>
+        </Button>
+
+        <Button fx:id="btnBack" layoutX="475.0" layoutY="360.0" mnemonicParsing="false" onAction="#onBack" prefHeight="26.0" prefWidth="82.0" style="-fx-background-radius: 15;" text="Back">
+            <effect>
+                <DropShadow />
+            </effect>
+        </Button>
+
+    </children>
+
+</AnchorPane>

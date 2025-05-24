@@ -61,12 +61,15 @@ public class Administrador extends Persona {
     public void setPacienteAdministrados(LinkedList<Paciente> pacienteAdministrados) {
         PacienteAdministrados = pacienteAdministrados;
     }
+
     public void eliminarPaciente(Paciente paciente) {
         PacienteAdministrados.remove(paciente);
     }
+
     public void agregarPaciente(Paciente paciente) {
         PacienteAdministrados.add(paciente);
     }
+
     public boolean actualizarPaciente(String idPaciente, HistorialMedico nuevoHistorial, LinkedList<Cita> nuevasCitas) {
         for (Paciente paciente : PacienteAdministrados) {
             if (paciente.getId().equals(idPaciente)) {

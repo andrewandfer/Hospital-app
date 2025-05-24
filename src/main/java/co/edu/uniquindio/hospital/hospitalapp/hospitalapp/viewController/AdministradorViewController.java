@@ -37,6 +37,9 @@ public class AdministradorViewController {
 
     @FXML
     void OnCambiarDisponibilidad(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "GestionarDisponibilidadMedico.fxml",SceneManager.getAdministradorActual());
+
 
     }
     @FXML
@@ -72,23 +75,15 @@ public class AdministradorViewController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/GestionPaciente.fxml"));
             Parent root = loader.load();
-
-            // Obtener el controlador y pasarle el administrador
             GestionPacienteViewController controller = loader.getController();
-            // ✅ Esta es la clave
-
-            // Cambiar escena
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Gestión de Pacientes");
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
     @FXML
     void OnGestionarSalaYHorarios(ActionEvent event) {
 
@@ -99,6 +94,9 @@ public class AdministradorViewController {
         this.administrador = administrador;
 
     }
+    @FXML
+    void onGestionarMedico(ActionEvent event) {
 
+    }
 
 }

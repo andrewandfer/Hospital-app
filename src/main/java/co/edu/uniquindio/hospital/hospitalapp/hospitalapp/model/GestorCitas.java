@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +42,44 @@ public class GestorCitas {
     public List<Notificacion> getNotificaciones() {
         return notificaciones;
     }
+
+
+    public void solicitarCita(Paciente paciente, Medico medico, LocalDateTime fechaHora) {
+        String error = validarDatosCita(paciente, medico, fechaHora);
+        if (error != null) {
+            throw new IllegalArgumentException(error);
+        }
+        String idCita = generarIdCita();
+        Cita nuevaCita = new Cita(idCita, fechaHora, medico, paciente, Estado.PENDIENTE);
+        programarCita(nuevaCita);
+    }
+
+
+    public void cancelarCita(Cita cita) {
+        // Cambiar el estado de la cita a cancelada
+        cita.setEstado(Estado.CANCELADA);
+    }
+    public String validarDatosCita(Paciente paciente, Medico medico, LocalDateTime fechaHora) {
+        if (paciente == null) {
+            return "El paciente no puede ser nulo.";
+        }
+        if (medico == null) {
+            return "El médico no puede ser nulo.";
+        }
+        if (fechaHora == null || fechaHora.isBefore(LocalDateTime.now())) {
+            return "La fecha y hora de la cita deben ser futuras.";
+        }
+
+        return null; // Indica que los datos son válidos
+    }
+
+    public static String generarIdCita() {
+        int id = (int) (Math.random() * 100000); // Genera un número entre 0 y 99999
+        return String.format("%05d", id); // Asegura que siempre tenga 5 dígitos (rellena con ceros a la izquierda)
+    }
+
 }
+
 
 
 

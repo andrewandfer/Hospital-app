@@ -22,6 +22,13 @@ public class SceneManager {
         }
     }
 
+    /**
+     * Cambia la escena de la aplicación y pasa el paciente a la nueva escena.
+     * @param stage
+     * @param rutaFXML
+     * @param administradorActual
+     * @param paciente
+     */
     public static void cambiarEscenaConDatos(Stage stage, String rutaFXML, Administrador administradorActual, Paciente paciente) {
         try {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + rutaFXML));
@@ -43,6 +50,12 @@ public class SceneManager {
         }
     }
 
+    /**
+     * Cambia la escena de la aplicación y pasa el paciente a la nueva escena.
+     * @param stage
+     * @param fxml
+     * @param paciente
+     */
     public static void cambiarEscenaConPaciente(Stage stage, String fxml, Paciente paciente) {
         try {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + fxml));

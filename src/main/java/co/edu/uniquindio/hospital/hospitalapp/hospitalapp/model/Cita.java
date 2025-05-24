@@ -17,6 +17,7 @@ public class Cita {
         this.estado = estado;
     }
 
+
     public String getIdCita() {
         return idCita;
     }

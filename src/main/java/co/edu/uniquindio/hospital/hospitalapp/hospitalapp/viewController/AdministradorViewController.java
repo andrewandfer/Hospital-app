@@ -1,7 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Sala;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;

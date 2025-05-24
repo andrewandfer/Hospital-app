@@ -2,7 +2,6 @@ package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.*;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
@@ -17,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.awt.font.TextHitInfo;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -56,7 +54,6 @@ public class GestionPacienteViewController {
 
     @FXML
     public void initialize() {
-
         listaPacientes.addAll(HospitalAppApplication.hospital.getPacientes());
 
         tcId.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getId()));
@@ -74,6 +71,7 @@ public class GestionPacienteViewController {
 
     public void agregarPacienteSistema(Paciente paciente){
         HospitalAppApplication.hospital.getPacientes().add(paciente);
+        agregarPacienteATabla(paciente);
     }
 
 
@@ -83,7 +81,7 @@ public class GestionPacienteViewController {
         if (seleccionado != null) {
             abrirFormularioPaciente(true, seleccionado);
         } else {
-            mostrarAlerta("Debes seleccionar un paciente para actualizar.");
+            mostrarAlerta("Debes seleccionar un paciente para actualizar.", Alert.AlertType.WARNING);
         }
     }
 
@@ -92,8 +90,9 @@ public class GestionPacienteViewController {
         Paciente seleccionado = tablaPacientes.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
             listaPacientes.remove(seleccionado);
+            HospitalAppApplication.hospital.getPacientes().remove(seleccionado);
         } else {
-            mostrarAlerta("Debes seleccionar un paciente para eliminar.");
+            mostrarAlerta("Debes seleccionar un paciente para eliminar.", Alert.AlertType.WARNING);
         }
     }
 
@@ -105,6 +104,7 @@ public class GestionPacienteViewController {
         int index = listaPacientes.indexOf(original);
         if (index != -1) {
             listaPacientes.set(index, actualizado);
+            HospitalAppApplication.hospital.getPacientes().set(index, actualizado);
         }
     }
 
@@ -130,8 +130,8 @@ public class GestionPacienteViewController {
         }
     }
 
-    private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+    private void mostrarAlerta(String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
         alert.setTitle("Advertencia");
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
@@ -147,7 +147,5 @@ public class GestionPacienteViewController {
         SceneManager.cambiarEscena(stage, "Administrador.fxml", SceneManager.getAdministradorActual());
 
     }
-
-
 }
 

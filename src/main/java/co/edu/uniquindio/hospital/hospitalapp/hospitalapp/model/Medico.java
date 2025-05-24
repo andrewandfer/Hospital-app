@@ -11,7 +11,7 @@ public class Medico extends Persona {
     private LinkedList<Horario> horarioMedico;
     private LinkedList<HistorialMedico> listaHistorialMedico;
     private Sala sala;
-    private boolean disponible;
+    private boolean disponible=true;
     private LinkedList<Paciente> pacientesAsignados;
 
     public Medico(String nombre, String apellido, String id, String especialidad, String consultorio, String numLicencia, boolean disponible) {
@@ -19,11 +19,9 @@ public class Medico extends Persona {
         this.especialidad = especialidad;
         this.consultorio = consultorio;
         this.numLicencia = numLicencia;
-
         this.disponible = disponible;
         this.horarioMedico = new LinkedList<>();
         this.listaHistorialMedico = new LinkedList<>();
-        this.disponible = true;
         this.pacientesAsignados = new LinkedList<>();
     }
 

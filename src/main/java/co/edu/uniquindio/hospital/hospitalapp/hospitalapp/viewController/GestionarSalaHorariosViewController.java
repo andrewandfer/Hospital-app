@@ -88,6 +88,8 @@ public class GestionarSalaHorariosViewController {
 }
     @FXML
     void onActualizarHorario(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "CrearActualizarHorarioForm.fxml", SceneManager.getAdministradorActual());
 
     }
 
@@ -117,6 +119,8 @@ public class GestionarSalaHorariosViewController {
 
     @FXML
     void onAgregarHorario(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "CrearActualizarHorarioForm.fxml", SceneManager.getAdministradorActual());
 
     }
 

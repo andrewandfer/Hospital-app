@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400" prefWidth="450" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.CrearActualizarHorarioFormViewController">
+
+    <VBox alignment="CENTER" layoutX="25" layoutY="25" spacing="25" style="-fx-padding: 30; -fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);" AnchorPane.bottomAnchor="25" AnchorPane.leftAnchor="25" AnchorPane.rightAnchor="25" AnchorPane.topAnchor="25">
+
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2e2e2e;" text="Formulario de Horario" textFill="#fffcfc" />
+
+        <GridPane hgap="15" style="-fx-padding: 10;" vgap="15">
+
+            <columnConstraints>
+                <ColumnConstraints minWidth="120" />
+                <ColumnConstraints minWidth="220" />
+            </columnConstraints>
+
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #333;" text="Día:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ComboBox fx:id="comboDia" promptText="Seleccione un día" style="-fx-pref-height: 30px;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #333;" text="Hora inicio:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtHoraInicio" promptText="Ej: 08:00" style="-fx-pref-height: 30px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #333;" text="Hora fin:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtHoraFin" promptText="Ej: 16:00" style="-fx-pref-height: 30px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <HBox alignment="CENTER" spacing="20">
+            <Button onAction="#onGuardar" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 100px; -fx-background-radius: 5;" text="Guardar" />
+            <Button onAction="#onCancelar" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 100px; -fx-background-radius: 5;" text="Cancelar" />
+        </HBox>
+    </VBox>
+</AnchorPane>

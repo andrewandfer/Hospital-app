@@ -7,7 +7,7 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 public class Horario {
-    private String dia; // Por ejemplo: "Lunes", "Martes"
+    private String dia;
     private LocalTime horaInicio;
     private LocalTime horaFin;
 

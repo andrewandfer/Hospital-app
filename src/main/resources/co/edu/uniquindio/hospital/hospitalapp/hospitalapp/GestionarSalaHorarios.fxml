@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.GestionarSalaHorariosViewController">
+
+    <children>
+
+        <Label layoutX="200.0" layoutY="20.0" text="Gestión de Salas y Horarios" textFill="#ffffff">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+
+        <!-- Tabla de Salas -->
+        <Label layoutX="60.0" layoutY="70.0" text="Salas" textFill="#ffffff">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="tablaSalas" layoutX="60.0" layoutY="100.0" prefHeight="276.0" prefWidth="260.0">
+            <columns>
+                <TableColumn fx:id="colNombreSala" prefWidth="120.0" text="Nombre" />
+                <TableColumn fx:id="colDisponibilidadSala" prefWidth="120.0" text="Disponible" />
+            </columns>
+        </TableView>
+
+        <!-- Tabla de Horarios -->
+        <Label layoutX="380.0" layoutY="70.0" text="Horarios" textFill="#ffffff">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="tablaHorarios" layoutX="380.0" layoutY="100.0" prefHeight="276.0" prefWidth="260.0">
+            <columns>
+                <TableColumn fx:id="colDia" prefWidth="80.0" text="Día" />
+                <TableColumn fx:id="colHoraInicio" prefWidth="90.0" text="Hora Inicio" />
+                <TableColumn fx:id="colHoraFin" prefWidth="90.0" text="Hora Fin" />
+            </columns>
+        </TableView>
+
+        <!-- Botones -->
+        <Button fx:id="btnAgregarSala" layoutX="56.0" layoutY="400.0" mnemonicParsing="false" onAction="#onAgregarSala" style="-fx-background-radius: 15;" text="Agregar Sala">
+            <effect><DropShadow /></effect>
+        </Button>
+
+        <Button fx:id="btnEliminarSala" layoutX="190.0" layoutY="400.0" mnemonicParsing="false" onAction="#onEliminarSala" style="-fx-background-radius: 15;" text="Eliminar Sala">
+            <effect><DropShadow /></effect>
+        </Button>
+
+        <Button fx:id="btnAgregarHorario" layoutX="380.0" layoutY="400.0" mnemonicParsing="false" onAction="#onAgregarHorario" style="-fx-background-radius: 15;" text="Agregar Horario">
+            <effect><DropShadow /></effect>
+        </Button>
+
+        <Button fx:id="btnEliminarHorario" layoutX="538.0" layoutY="400.0" mnemonicParsing="false" onAction="#onEliminarHorario" style="-fx-background-radius: 15;" text="Eliminar Horario">
+            <effect><DropShadow /></effect>
+        </Button>
+
+        <Button fx:id="btnBack" layoutX="620.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBack" prefWidth="60.0" style="-fx-background-radius: 15;" text="Back">
+            <effect><DropShadow /></effect>
+        </Button>
+
+    </children>
+</AnchorPane>

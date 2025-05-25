@@ -10,7 +10,6 @@ public class HistorialMedico {
     private Paciente paciente;
 
     public HistorialMedico(String idHistorialMedico, String diagnostico, String tratamiento, Paciente paciente) {
-        this.colaboradores = colaboradores;
         this.idHistorialMedico = paciente.getId();
         this.diagnostico = diagnostico;
         this.tratamiento = tratamiento;

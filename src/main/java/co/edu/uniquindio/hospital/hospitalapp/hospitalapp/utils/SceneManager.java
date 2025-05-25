@@ -83,4 +83,22 @@ public class SceneManager {
     }
 
 
+    public static void cambiarEscenaConMedico(Stage stage, String fxml, Medico medico) {
+        try {
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(
+                    "/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + fxml));
+            Parent root = loader.load();
+
+            // CAMBIO AQUÍ: Usamos el controlador real de la vista FXML
+            MedicoRegistrarHistorialMedicoViewController controller = loader.getController();
+            controller.setMedico(medico); // Pasamos el objeto médico
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

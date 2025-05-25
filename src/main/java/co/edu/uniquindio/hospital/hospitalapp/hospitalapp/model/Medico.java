@@ -136,10 +136,7 @@ public class Medico extends Persona {
 
     //metodo para registrar Diagnostico YTratamiento
     public void registrarDiagnosticoYTratamiento(String idHistorial, String diagnostico, String tratamiento, Paciente paciente) {
-        LinkedList<Medico> colaboradores = new LinkedList<>();
-        colaboradores.add(this);
-        HistorialMedico nuevoHistorial = new HistorialMedico( idHistorial, diagnostico, tratamiento, paciente);
-
+        HistorialMedico nuevoHistorial = new HistorialMedico(idHistorial, diagnostico, tratamiento, paciente);
         this.listaHistorialMedico.add(nuevoHistorial);
     }
 

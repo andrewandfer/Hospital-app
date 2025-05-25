@@ -89,7 +89,10 @@ public class GestorCitas {
         return String.format("%05d", id); // Asegura que siempre tenga 5 dígitos (rellena con ceros a la izquierda)
     }
 
-}
+
+
+    }
+
 
 
 

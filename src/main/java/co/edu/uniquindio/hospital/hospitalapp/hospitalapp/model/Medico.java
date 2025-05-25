@@ -104,17 +104,24 @@ public class Medico extends Persona {
         this.pacientesAsignados = pacientesAsignados;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Medico{" +
+//                "especialidad='" + especialidad + '\'' +
+//                ", consultorio='" + consultorio + '\'' +
+//                ", numLicencia='" + numLicencia + '\'' +
+//                ", horarioMedico=" + horarioMedico +
+//                ", listaHistorialMedico=" + listaHistorialMedico +
+//                ", sala=" + sala +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Medico{" +
-                "especialidad='" + especialidad + '\'' +
-                ", consultorio='" + consultorio + '\'' +
-                ", numLicencia='" + numLicencia + '\'' +
-                ", horarioMedico=" + horarioMedico +
-                ", listaHistorialMedico=" + listaHistorialMedico +
-                ", sala=" + sala +
-                '}';
+        return getNombre() + ", Especialida: " + especialidad + ", Disponibilidad: " + (disponible ? "Disponible" : "No disponible");
     }
+
+
     public LinkedList<HistorialMedico> obtenerHistorialesPorPaciente(Paciente paciente) {
         LinkedList<HistorialMedico> historialesPaciente = new LinkedList<>();
         for (HistorialMedico historial : listaHistorialMedico) {

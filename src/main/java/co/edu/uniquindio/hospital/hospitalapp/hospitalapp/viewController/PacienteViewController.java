@@ -19,7 +19,7 @@ public class PacienteViewController{
     private Button btnHistorialMedico;
 
     @FXML
-    private Button btnRegistrarCitas;
+    private Button btnRegistrarse;
 
     @FXML
     private Button btnSolicitarCitas;
@@ -42,8 +42,8 @@ public class PacienteViewController{
 
     @FXML
     void onCancelarCitas(ActionEvent event) {
-
-
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "CancelarCitaPaciente.fxml", SceneManager.getAdministradorActual());
     }
 
     @FXML
@@ -55,13 +55,15 @@ public class PacienteViewController{
     }
 
     @FXML
-    void onRegistrarCitas(ActionEvent event) {
-
+    void onRegistrarse(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "RegistrarNuevoPaciente.fxml", SceneManager.getAdministradorActual());
     }
 
     @FXML
     void onSolicitarCitas(ActionEvent event) {
-
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "SolicitarCitaPaciente.fxml", SceneManager.getAdministradorActual());
     }
 
 }

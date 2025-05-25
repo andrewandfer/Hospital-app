@@ -44,7 +44,7 @@ public class GestorCitas {
     }
 
 
-    public void solicitarCita(Paciente paciente, Medico medico, LocalDateTime fechaHora) {
+    public String solicitarCita(Paciente paciente, Medico medico, LocalDateTime fechaHora) {
         String error = validarDatosCita(paciente, medico, fechaHora);
         if (error != null) {
             throw new IllegalArgumentException(error);
@@ -52,13 +52,24 @@ public class GestorCitas {
         String idCita = generarIdCita();
         Cita nuevaCita = new Cita(idCita, fechaHora, medico, paciente, Estado.PENDIENTE);
         programarCita(nuevaCita);
+        return idCita;
     }
 
 
-    public void cancelarCita(Cita cita) {
-        // Cambiar el estado de la cita a cancelada
-        cita.setEstado(Estado.CANCELADA);
+    public boolean cancelarCita(String idCita) {
+        for(Cita cita: citas){
+            if(cita.getIdCita().equals(idCita)){
+                cita.setEstado(Estado.CANCELADA);
+                System.out.println("Cita cancelada");
+                return true;
+            } else {
+                System.out.println("No se encontró la cita con ID: " + idCita);
+            }
+        }
+        return false;
     }
+
+
     public String validarDatosCita(Paciente paciente, Medico medico, LocalDateTime fechaHora) {
         if (paciente == null) {
             return "El paciente no puede ser nulo.";

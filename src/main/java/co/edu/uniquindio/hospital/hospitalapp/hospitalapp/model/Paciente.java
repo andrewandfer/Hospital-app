@@ -51,6 +51,8 @@ public class Paciente extends Persona {
     public void setMedicoAsignado(Medico medicoAsignado) {
         this.medicoAsignado = medicoAsignado;
     }
+
+
     public boolean solicitarCita(LocalDateTime fechaHora, String motivo) {
         if (medicoAsignado == null) {
             System.out.println("El paciente no tiene un médico asignado.");

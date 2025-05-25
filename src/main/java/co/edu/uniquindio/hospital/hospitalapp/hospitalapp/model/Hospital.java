@@ -129,6 +129,20 @@ public class Hospital {
         return false;
     }
 
+    public boolean registrarNuevoPaciente(String nombre, String apellido, String id, LocalDate fechaNacimiento) {
+        // Verifica si ya existe un paciente con ese ID
+        for (Paciente paciente : Pacientes) {
+            if (paciente.getId().equals(id)) {
+                return false; // Ya existe un paciente con ese ID
+            }
+        }
+        Paciente nuevoPaciente = new Paciente(nombre, apellido, id, fechaNacimiento);
+        Pacientes.add(nuevoPaciente);
+        return true; // Registro exitoso
+    }
+
+
+
 
 
     @Override

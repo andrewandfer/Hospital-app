@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.CrearSalaFormViewController"
+      alignment="CENTER" spacing="15" style="-fx-background-color: #1A3C57;" VBox.vgrow="ALWAYS">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Formulario Crear Sala" style="-fx-font-size: 20px; -fx-text-fill: white;" />
+
+    <TextField fx:id="txtId" promptText="ID de la Sala" />
+    <TextField fx:id="txtNombre" promptText="Nombre de la Sala" />
+    <TextField fx:id="txtCapacidad" promptText="Capacidad (ej: 30 personas)" />
+
+    <CheckBox fx:id="checkDisponible" text="Disponible" style="-fx-text-fill: white;" />
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="btnGuardar" text="Guardar" onAction="#onGuardar"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8;" />
+        <Button fx:id="btnCancelar" text="Cancelar" onAction="#onCancelar"
+                style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-background-radius: 8;" />
+    </HBox>
+</VBox>

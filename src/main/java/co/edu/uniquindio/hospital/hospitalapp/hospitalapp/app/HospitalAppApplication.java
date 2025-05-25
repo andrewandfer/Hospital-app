@@ -27,15 +27,17 @@ public class HospitalAppApplication extends Application {
         Horario horario1= new Horario("lunes", LocalTime.of(8, 0), LocalTime.of(10, 0));
         Paciente pacientePrueba = new Paciente("Cristian", "Gonzalez", "123456789", LocalDate.of(2006, 07, 22));
         HistorialMedico historialMedicoPrueba = new HistorialMedico("Historial0", "Gripa", "Nada", pacientePrueba);
+        Sala sala = new Sala("152","153","50",true);
         pacientePrueba.setHistorialMedico(historialMedicoPrueba);
 
         hospital.getPacientes().add(pacientePrueba);
         Medico medicoPrueba = new Medico("Raul", "Gomez", "medico1", "nada", "D401",
                 "000", true);
 
+
         hospital.getMedicosHospital().add(medicoPrueba);
         hospital.getHorarioAtencion().add(horario1);
-
+        hospital.getSalas().add(sala);
     }
 
 

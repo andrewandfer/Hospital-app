@@ -6,7 +6,7 @@ public class Sala {
     private String capacidad;
     private Boolean disponibilidad;
 
-    public Sala(String idSala, String nombre, String capacidad, Boolean especialidad) {
+    public Sala(String idSala, String nombre, String capacidad, Boolean disponibilidad) {
         this.idSala = idSala;
         this.nombre = nombre;
         this.capacidad = capacidad;
@@ -30,20 +30,12 @@ public class Sala {
         this.nombre = nombre;
     }
 
-    public String getCapacidad() {
+    public  String getCapacidad() {
         return capacidad;
     }
 
     public void setCapacidad(String capacidad) {
         this.capacidad = capacidad;
-    }
-
-    public Boolean getEspecialidad() {
-        return disponibilidad;
-    }
-
-    public void setEspecialidad(Boolean especialidad) {
-        this.disponibilidad = especialidad;
     }
 
     public Boolean getDisponibilidad() {
@@ -52,6 +44,10 @@ public class Sala {
 
     public void setDisponibilidad(Boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    public boolean isDisponible() {
+        return disponibilidad;
     }
 
     @Override

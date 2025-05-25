@@ -12,6 +12,7 @@ public class Hospital {
     private LinkedList<Administrador>administradoresHospital;
     private LinkedList<Paciente> Pacientes;
     private LinkedList<Horario> HorarioAtencion;
+    private LinkedList<Sala> salas;
     private Administrador administrador;
     private GestorCitas gestorCitas;
 
@@ -25,6 +26,7 @@ public class Hospital {
         this.gestorCitas = gestorCitas;
         this.administradoresHospital = new LinkedList<>();
         this.HorarioAtencion = new LinkedList<>();
+        this.salas = new LinkedList<>();
     }
 
     public GestorCitas getGestorCitas() {
@@ -57,6 +59,14 @@ public class Hospital {
 
     public void setNit(String nit) {
         this.nit = nit;
+    }
+
+    public LinkedList<Sala> getSalas() {
+        return salas;
+    }
+
+    public void setSalas(LinkedList<Sala> salas) {
+        this.salas = salas;
     }
 
     public LinkedList<Medico> getMedicosHospital() {

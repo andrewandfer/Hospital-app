@@ -14,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -134,6 +133,7 @@ public class GestionMedicoViewController implements ControladorConAdministrador{
 
         } catch (IOException e) {
             e.printStackTrace();
+            mostrarAlertaTipo("Error al abrir el formulario", Alert.AlertType.ERROR);
         }
     }
 
@@ -164,6 +164,17 @@ public class GestionMedicoViewController implements ControladorConAdministrador{
         Stage stage = (Stage) alerta.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagenes/logo.png")));
         alerta.showAndWait();
+    }
+
+    private void mostrarAlertaTipo(String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle("Advertencia");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagenes/logo.png")));
+
+        alert.showAndWait();
     }
 
     @FXML

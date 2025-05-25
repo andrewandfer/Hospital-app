@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-
 public class GestionarDisponibilidadMedicosViewController {
 
     @FXML

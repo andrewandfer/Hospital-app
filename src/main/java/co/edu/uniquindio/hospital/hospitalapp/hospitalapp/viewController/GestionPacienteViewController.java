@@ -1,7 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
-
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.*;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
@@ -15,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -127,6 +125,7 @@ public class GestionPacienteViewController {
 
         } catch (IOException e) {
             e.printStackTrace();
+            mostrarAlerta("Error al abrir el formulario del paciente.", Alert.AlertType.ERROR);
         }
     }
 

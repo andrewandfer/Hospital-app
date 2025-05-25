@@ -52,7 +52,7 @@ public class AdministradorViewController {
     @FXML
     void OnBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "hospitalapp-view.fxml",SceneManager.getAdministradorActual());
+        SceneManager.cambiarEscena(stage, "Hospitalapp-view.fxml",SceneManager.getAdministradorActual());
 
     }
 
@@ -84,6 +84,9 @@ public class AdministradorViewController {
     }
     @FXML
     void OnGestionarSalaYHorarios(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "GestionarSalaHorarios.fxml",SceneManager.getAdministradorActual());
+
 
     }
     private Administrador administrador;

@@ -11,6 +11,7 @@ public class Hospital {
     private LinkedList<Medico> medicosHospital;
     private LinkedList<Administrador>administradoresHospital;
     private LinkedList<Paciente> Pacientes;
+    private LinkedList<Horario> HorarioAtencion;
     private Administrador administrador;
     private GestorCitas gestorCitas;
 
@@ -22,6 +23,8 @@ public class Hospital {
         this.Pacientes = new LinkedList<>();
         this.administrador = administrador;
         this.gestorCitas = gestorCitas;
+        this.administradoresHospital = new LinkedList<>();
+        this.HorarioAtencion = new LinkedList<>();
     }
 
     public GestorCitas getGestorCitas() {
@@ -72,6 +75,21 @@ public class Hospital {
         this.administrador = administrador;
     }
 
+    public LinkedList<Administrador> getAdministradoresHospital() {
+        return administradoresHospital;
+    }
+
+    public void setAdministradoresHospital(LinkedList<Administrador> administradoresHospital) {
+        this.administradoresHospital = administradoresHospital;
+    }
+
+    public LinkedList<Horario> getHorarioAtencion() {
+        return HorarioAtencion;
+    }
+
+    public void setHorarioAtencion(LinkedList<Horario> horarioAtencion) {
+        HorarioAtencion = horarioAtencion;
+    }
 
     public LinkedList<Paciente> getPacientes() {
         return Pacientes;

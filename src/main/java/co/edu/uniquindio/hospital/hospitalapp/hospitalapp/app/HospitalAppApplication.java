@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 public class HospitalAppApplication extends Application {
@@ -23,17 +24,18 @@ public class HospitalAppApplication extends Application {
 
     public void cargarDatos() {
 
-
+        Horario horario1= new Horario("lunes", LocalTime.of(8, 0), LocalTime.of(10, 0));
         Paciente pacientePrueba = new Paciente("Cristian", "Gonzalez", "123456789", LocalDate.of(2006, 07, 22));
         HistorialMedico historialMedicoPrueba = new HistorialMedico("Historial0", "Gripa", "Nada", pacientePrueba);
         pacientePrueba.setHistorialMedico(historialMedicoPrueba);
 
         hospital.getPacientes().add(pacientePrueba);
-
         Medico medicoPrueba = new Medico("Raul", "Gomez", "medico1", "nada", "D401",
                 "000", true);
 
         hospital.getMedicosHospital().add(medicoPrueba);
+        hospital.getHorarioAtencion().add(horario1);
+
     }
 
 
@@ -41,7 +43,7 @@ public class HospitalAppApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         cargarDatos();
-        FXMLLoader fxmlLoader = new FXMLLoader(HospitalAppApplication.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/hospitalapp-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HospitalAppApplication.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/Hospitalapp-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
 

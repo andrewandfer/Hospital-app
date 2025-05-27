@@ -11,14 +11,14 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 15; -fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.HospitalAppController">
    <left>
-      <ImageView fitHeight="327.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fitHeight="305.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
             <Image url="@../../../../../../imagenes/Captura%20de%20pantalla%202025-05-07%20203213.png" />
          </image>
       </ImageView>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="370.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="155.0" layoutY="270.0" mnemonicParsing="false" onAction="#onPaciente" prefHeight="35.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="Paciente">
                <effect>

@@ -103,7 +103,7 @@ public class AdministradorViewController {
     void notificarAlMedico(ActionEvent event) {
         var medicoController = SceneManager.getMedicoViewController();
         if (medicoController != null) {
-            medicoController.notificarCambioCita("Se ha modificado una cita. Por favor, revise los cambios.");
+            //medicoController.notificarCambioCita(medico);
         }
     }
 }

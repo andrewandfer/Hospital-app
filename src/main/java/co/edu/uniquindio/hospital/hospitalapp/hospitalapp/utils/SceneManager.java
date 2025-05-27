@@ -83,6 +83,7 @@ public class SceneManager {
             if (controller instanceof MedicoViewController) {
                 ((MedicoViewController) controller).setMedico(medico);
                 medicoViewController = (MedicoViewController) controller; // Guardar instancia
+                ((MedicoViewController) controller).notificarCambioCita(SceneManager.medico);
             } else if (controller instanceof MedicoRegistrarHistorialMedicoViewController) {
                 ((MedicoRegistrarHistorialMedicoViewController) controller).setMedico(medico);
                 // Si necesitas notificar aquí, crea otra variable estática similar

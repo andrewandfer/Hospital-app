@@ -1,6 +1,7 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Notificacion;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,8 +46,13 @@ public class MedicoViewController {
     }
 
     // Método para recibir la notificación desde el administrador
-    public void notificarCambioCita(String mensaje) {
-        this.mensajeNotificacion = mensaje;
+    public void notificarCambioCita(Medico medico) {
+        StringBuilder notificaciones = new StringBuilder();
+        for(Notificacion notificacion: medico.getNotificacionessoobrecitas()){
+            notificaciones.append(notificacion.getMensaje()).append("\n");
+        }
+
+        this.mensajeNotificacion =  notificaciones.toString();
         btnNotificarCambios.setStyle("-fx-background-color: #f39c12;");
     }
 

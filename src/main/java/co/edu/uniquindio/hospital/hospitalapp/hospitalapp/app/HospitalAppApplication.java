@@ -43,7 +43,6 @@ public class    HospitalAppApplication extends Application {
         hospital.getSalas().add(sala);
     }
 
-
     @Override
     public void start(Stage stage) throws IOException {
 

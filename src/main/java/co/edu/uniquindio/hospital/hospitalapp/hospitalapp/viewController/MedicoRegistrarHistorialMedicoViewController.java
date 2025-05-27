@@ -1,7 +1,11 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
-
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.HistorialMedico;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,21 +15,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-import java.util.EventObject;
-
 public class MedicoRegistrarHistorialMedicoViewController {
     private Medico medico;
 
     public void setMedico(Medico medico) {
-        this.medico = medico;
 
-        if (medico != null) {
-            System.out.println("Médico asignado: " + medico.getNombre());
-        } else {
-            System.out.println("⚠️ ¡El objeto Medico recibido es null!");
-        }
     }
-
 
     @FXML
     private TextField txtIdHistorialMedico;
@@ -45,36 +40,44 @@ public class MedicoRegistrarHistorialMedicoViewController {
     @FXML
     private Button btnBack;
 
-    // Este método se ejecuta cuando se hace clic en el botón "Registrar"
+    // Método para registrar el historial médico al paciente seleccionado
     @FXML
     private void OnRegistrar() {
         String idHistorial = txtIdHistorialMedico.getText();
         String diagnostico = txtDiagnostico.getText();
         String tratamiento = txtTratamiento.getText();
-        String paciente = ChiceBoxPaciente.getValue();
+        String nombrePaciente = ChiceBoxPaciente.getValue();
 
-        if (idHistorial.isEmpty() || diagnostico.isEmpty() || tratamiento.isEmpty() || paciente == null) {
+        if (idHistorial.isEmpty() || diagnostico.isEmpty() || tratamiento.isEmpty() || nombrePaciente == null) {
             mostrarAlerta("Error", "Por favor completa todos los campos.");
             return;
         }
 
-        // Aquí va la lógica de registro (por ahora solo mostramos en consola)
-        System.out.println("✅ Historial médico registrado:");
-        System.out.println("ID: " + idHistorial);
-        System.out.println("Diagnóstico: " + diagnostico);
-        System.out.println("Tratamiento: " + tratamiento);
-        System.out.println("Paciente: " + paciente);
+        // Buscar el paciente por nombre
+        Paciente pacienteSeleccionado = HospitalAppApplication.hospital.getPacientes().stream()
+                .filter(p -> (p.getNombre() + " " + p.getApellido()).equals(nombrePaciente))
+                .findFirst()
+                .orElse(null);
 
-        mostrarAlerta("Éxito", "Historial médico registrado con éxito.");
+        if (pacienteSeleccionado == null) {
+            mostrarAlerta("Error", "No se encontró el paciente seleccionado.");
+            return;
+        }
 
-        // Limpia los campos
+        // Crear el historial médico y asignarlo al paciente
+        HistorialMedico historial = new HistorialMedico(idHistorial, diagnostico, tratamiento, pacienteSeleccionado);
+        pacienteSeleccionado.setHistorialMedico(historial);
+
+        mostrarAlerta("Éxito", "Historial médico registrado para el paciente.");
+
+        // Limpiar campos
         txtIdHistorialMedico.clear();
         txtDiagnostico.clear();
         txtTratamiento.clear();
         ChiceBoxPaciente.setValue(null);
     }
 
-    // Este método opcional podría usarse para manejar el botón "Back"
+    // Método para volver atrás
     @FXML
     private void OnBack() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
@@ -90,14 +93,14 @@ public class MedicoRegistrarHistorialMedicoViewController {
         alert.showAndWait();
     }
 
-    // Este método se puede usar para inicializar cosas al cargar la vista
+    // Inicializa la lista de pacientes en el ChoiceBox
     @FXML
     public void initialize() {
-        // Cargar pacientes de ejemplo (debería venir de la lógica de negocio)
-        ChiceBoxPaciente.getItems().addAll(
-                "Juan Pérez",
-                "Ana García",
-                "Carlos Ramírez"
+        ObservableList<String> nombresPacientes = FXCollections.observableArrayList();
+        HospitalAppApplication.hospital.getPacientes().forEach(
+                paciente -> nombresPacientes.add(paciente.getNombre() + " " + paciente.getApellido())
         );
+        ChiceBoxPaciente.setItems(nombresPacientes);
     }
 }
+

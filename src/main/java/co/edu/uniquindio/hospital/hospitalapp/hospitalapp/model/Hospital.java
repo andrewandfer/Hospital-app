@@ -9,7 +9,7 @@ public class Hospital {
     private String direccion;
     private String nit;
     private LinkedList<Medico> medicosHospital;
-    private LinkedList<Administrador>administradoresHospital;
+    private LinkedList<Administrador> administradoresHospital;
     private LinkedList<Paciente> Pacientes;
     private LinkedList<Horario> HorarioAtencion;
     private LinkedList<Sala> salas;
@@ -112,15 +112,19 @@ public class Hospital {
     public void eliminarAdministrador(Administrador administrador) {
         administradoresHospital.remove(administrador);
     }
+
     public void agregarAdministrador(Administrador administrador) {
         administradoresHospital.add(administrador);
     }
+
     public void eliminarMedico(Medico medico) {
         medicosHospital.remove(medico);
     }
+
     public void agregarMedico(Medico medico) {
         medicosHospital.add(medico);
     }
+
     public boolean actualizarMedico(String numLicencia, String nuevaEspecialidad, String nuevoConsultorio,
                                     Sala nuevaSala, LinkedList<Horario> nuevoHorario,
                                     LinkedList<HistorialMedico> nuevoHistorial) {
@@ -138,7 +142,6 @@ public class Hospital {
     }
 
 
-
     public Paciente buscarPaciente(String idPaciente) {
         for (Paciente paciente : Pacientes) {
             if (paciente.getId().equals(idPaciente)) {
@@ -147,8 +150,9 @@ public class Hospital {
         }
         return null;
     }
+
     public boolean actualizarDatosPaciente(String idPaciente, String nuevoNombre, String nuevoApellido, LocalDate nuevaFechaNacimiento) {
-        for (Paciente paciente :Pacientes) {
+        for (Paciente paciente : Pacientes) {
             if (paciente.getId().equals(idPaciente)) {
                 paciente.actualizarDatos(nuevoNombre, nuevoApellido, nuevaFechaNacimiento);
                 return true;
@@ -168,9 +172,6 @@ public class Hospital {
         Pacientes.add(nuevoPaciente);
         return true; // Registro exitoso
     }
-
-
-
 
 
     @Override
@@ -197,17 +198,11 @@ public class Hospital {
         return new LinkedList<>();
     }
 
-    public String obtenerHistorialMedico(Medico medicoSeleccionado, Paciente pacienteSeleccionado) {
-        for (Medico medico : medicosHospital) {
-            if (medico.equals(medicoSeleccionado)) {
-                for (HistorialMedico historial : medico.getListaHistorialMedico()) {
-                    if (historial.getPaciente().equals(pacienteSeleccionado)) {
-                        return historial.toString();
-                    }
-                }
-            }
+    public String obtenerHistorialMedico(Medico medico, Paciente paciente) {
+        if (paciente.getHistorialMedico() != null) {
+            return paciente.getHistorialMedico().toString(); // O el campo que desees mostrar
         }
-        return null; // No se encontró el historial médico
+        return null;
     }
 }
 

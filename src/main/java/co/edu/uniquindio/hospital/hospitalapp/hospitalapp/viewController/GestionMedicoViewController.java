@@ -207,6 +207,7 @@ public class GestionMedicoViewController implements ControladorConAdministrador{
                     .collect(Collectors.toList());
 
             tablaMedicos.setItems(FXCollections.observableArrayList(medicosDisponibles));
+
         }
     }
 

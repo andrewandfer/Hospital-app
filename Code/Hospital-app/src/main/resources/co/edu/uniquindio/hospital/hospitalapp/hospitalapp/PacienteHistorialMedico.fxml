@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="289.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.HistorialMedicoViewController">
+   <children>
+      <TextField fx:id="text_field_cedulaHistorial" layoutX="34.0" layoutY="123.0" prefHeight="34.0" prefWidth="214.0" promptText="Ingrese su celula " />
+      <Label layoutX="80.0" layoutY="40.0" prefHeight="25.0" prefWidth="111.0" text="Historial medico" textAlignment="CENTER" textFill="#f5efef">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="buton_consultarHistorial" layoutX="38.0" layoutY="175.0" mnemonicParsing="false" onAction="#onMostrarHistorial" prefHeight="25.0" prefWidth="207.0" style="-fx-background-color: #27ae60;" text="Consultar Historial medico" textFill="#f4f4f4">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnBackConsultar" layoutX="215.0" layoutY="303.0" mnemonicParsing="false" onAction="#OnBackConsultar" prefHeight="18.0" prefWidth="49.0" style="-fx-background-radius: 15; -fx-background-color: #7f8c8d;" text="Back" />
+      <Label layoutX="41.0" layoutY="92.0" prefHeight="25.0" prefWidth="111.0" text="Ingrese su Cedula" textAlignment="CENTER" textFill="#f5efef">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

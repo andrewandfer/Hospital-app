@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="248.0" prefWidth="235.0" spacing="10" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.PacienteFormViewController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+   <Label text="Administrador-Formulario Paciente" textFill="#f4f4f4">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+   </Label>
+
+    <TextField fx:id="txtNombre" promptText="Nombre" />
+   <TextField fx:id="txtApellido" promptText="Apellido" />
+    <TextField fx:id="txtCedula" promptText="id" />
+   <DatePicker fx:id="campoFecha" promptText="Fecha de Nacimiento" />
+
+    <Button onAction="#OnRegistrarPaciente" style="-fx-background-color: #27ae60;" text="Registrar Paciente" textFill="WHITE">
+      <font>
+         <Font name="System Bold Italic" size="12.0" />
+      </font></Button>
+</VBox>

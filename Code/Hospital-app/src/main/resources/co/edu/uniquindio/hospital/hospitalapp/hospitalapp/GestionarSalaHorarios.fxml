@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f4f7fb;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.GestionarSalaHorariosViewController">
+
+    <VBox spacing="20" style="-fx-background-color: #1A3C57;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+
+        <!-- Título Salas -->
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #ffffff;" text="Gestión de Salas" />
+
+        <!-- Tabla Salas -->
+        <TableView fx:id="tablaSalas" prefHeight="180" style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;">
+            <columns>
+                <TableColumn fx:id="colNombreSala" prefWidth="380" text="Nombre de Sala" />
+                <TableColumn fx:id="colUbicacion" prefWidth="213.60003662109375" text="Id Sala" />
+            <TableColumn fx:id="colDisponibilidad" prefWidth="164.79998779296875" text="Disponibilidad" />
+            </columns>
+        </TableView>
+
+        <!-- Botones Sala -->
+        <HBox alignment="CENTER" spacing="12">
+            <Button fx:id="btnAgregarSala" onAction="#onAgregarSala" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 8;" text="Agregar Sala" />
+            <Button fx:id="btnEliminarSala" onAction="#onEliminarSala" style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-background-radius: 8;" text="Eliminar Sala" />
+            <Button fx:id="btnActualizarSala" onAction="#onActualizarSala" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8;" text="Actualizar Disponibilidad Sala" />
+        </HBox>
+
+        <!-- Título Horarios -->
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #ffffff;" text="Horarios de Atención" />
+
+        <!-- Tabla Horarios -->
+        <TableView fx:id="tablaHorarios" prefHeight="150.0" prefWidth="714.0" style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;">
+            <columns>
+                <TableColumn fx:id="colDia" prefWidth="260" text="Día" />
+                <TableColumn fx:id="colHoraInicio" prefWidth="240" text="Hora Inicio" />
+                <TableColumn fx:id="colHoraFin" prefWidth="259.20001220703125" text="Hora Fin" />
+            </columns>
+        </TableView>
+
+        <!-- Botones Horario -->
+        <HBox alignment="CENTER" spacing="12">
+            <Button fx:id="btnAgregarHorario" onAction="#onAgregarHorario" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 8;" text="Agregar Horario" />
+            <Button fx:id="btnEliminarHorario" onAction="#onEliminarHorario" style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-background-radius: 8;" text="Eliminar Horario" />
+            <Button fx:id="btnActualizarHorario" onAction="#onActualizarHorario" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8;" text="Actualizar Horario" />
+        </HBox>
+
+        <!-- Botón volver -->
+        <HBox alignment="CENTER">
+            <Button fx:id="btnBack" maxWidth="100" onAction="#onBack" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-background-radius: 8;" text="Back" />
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>

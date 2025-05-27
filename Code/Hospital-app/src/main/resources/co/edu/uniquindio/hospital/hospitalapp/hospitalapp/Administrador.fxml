@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.AdministradorViewController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="497.0" prefWidth="635.0">
+         <children>
+            <ImageView fitHeight="497.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../imagenes/Captura%20de%20pantalla%202025-05-07%20203213.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="403.0" layoutY="14.0" text="Bienvenido">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="49.0" text="¿Que desea hacer?">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnGestionarPacientes" layoutX="378.0" layoutY="111.0" mnemonicParsing="false" onAction="#OnGestionarPacientes" prefHeight="35.0" prefWidth="166.0" text="Gestionar Pacientes">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnGestionarMedicos" layoutX="378.0" layoutY="175.0" mnemonicParsing="false" onAction="#OnGestionarMedicos" prefHeight="35.0" prefWidth="166.0" text="Gestionar Medicos">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnGestionarSalaYHorario" layoutX="378.0" layoutY="237.0" mnemonicParsing="false" onAction="#OnGestionarSalaYHorarios" prefHeight="35.0" prefWidth="166.0" text="Gestionar Salas y Horarios">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnGenerarReporte" layoutX="378.0" layoutY="299.0" mnemonicParsing="false" onAction="#OnGenerarReporte" prefHeight="35.0" prefWidth="166.0" text="Generar Reportes">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnBack" layoutX="26.0" layoutY="451.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #7f8c8d;" text="Back" textFill="#0b0d0d" />
+            <Button fx:id="btnDisponibilidadMedicos" layoutX="378.0" layoutY="358.0" mnemonicParsing="false" onAction="#OnCambiarDisponibilidad" prefHeight="35.0" prefWidth="166.0" text="DisponibilidadMedicos">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAsignarMedico" layoutX="378.0" layoutY="416.0" mnemonicParsing="false" onAction="#OnAsignarMedico" prefHeight="35.0" prefWidth="166.0" text="AsignarMedico">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

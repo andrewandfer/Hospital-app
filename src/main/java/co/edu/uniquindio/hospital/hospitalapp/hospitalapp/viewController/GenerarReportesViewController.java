@@ -4,10 +4,13 @@ import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplica
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Cita;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Estado;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.Stage;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -102,6 +105,7 @@ public class GenerarReportesViewController {
         txtMotivoCita.clear();
         choiceEstadoCita.setValue(null);
     }
+
     private void cargarCitasDeMedico(Medico medico) {
         if (medico != null) {
             List<Cita> citasMedico = medico.getCitasAsignadas(); // Asumiendo que existe este método
@@ -111,5 +115,14 @@ public class GenerarReportesViewController {
             citas.clear();
             choiceCita.setItems(citas);
         }
+
+    }
+
+    @FXML
+    private void onBack() {
+        // Lógica para volver a la pantalla anterior
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "Medico.fxml", SceneManager.getAdministradorActual());
+
     }
 }

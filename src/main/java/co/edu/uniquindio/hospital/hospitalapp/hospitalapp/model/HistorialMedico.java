@@ -56,14 +56,13 @@ public class HistorialMedico {
         this.paciente = paciente;
     }
 
-    @Override
-    public String toString() {
-        return "HistorialMedico{" +
-                "colaboradores=" + colaboradores +
-                ", idHistorialMedico='" + idHistorialMedico + '\'' +
-                ", diagnostico='" + diagnostico + '\'' +
-                ", tratamiento='" + tratamiento + '\'' +
-                ", paciente=" + paciente +
-                '}';
+        @Override
+        public String toString() {
+            return "📋 Historial Médico:\n" +
+                    "🆔 ID: " + idHistorialMedico + "\n" +
+                    "🧾 Diagnóstico: " + diagnostico + "\n" +
+                    "💊 Tratamiento: " + tratamiento + "\n" +
+                    "👤 Paciente: " + paciente + "\n";
+        }
+
     }
-}

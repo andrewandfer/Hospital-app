@@ -58,6 +58,8 @@ public class AdministradorViewController {
 
     @FXML
     void OnGenerarReporte(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "GenerarReportes.fxml",SceneManager.getAdministradorActual());
 
     }
 

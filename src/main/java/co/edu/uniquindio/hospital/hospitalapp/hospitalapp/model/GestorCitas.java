@@ -21,7 +21,7 @@ public class GestorCitas {
         // Crear la notificación
         String mensaje = "Estimado/a " + cita.getPaciente().getNombre() +
                 ", su cita fue programada para: " + cita.getFechaHoraCita();
-        Notificacion notificacion = new Notificacion(mensaje);
+        Notificacion notificacion = new Notificacion(mensaje, LocalDateTime.now());
 
         // Guardar la notificación sin mostrarla
         notificaciones.add(notificacion);
@@ -50,7 +50,7 @@ public class GestorCitas {
             throw new IllegalArgumentException(error);
         }
         String idCita = generarIdCita();
-        Cita nuevaCita = new Cita(idCita, fechaHora, medico, paciente, Estado.PENDIENTE);
+        Cita nuevaCita = new Cita(idCita, fechaHora, Estado.PENDIENTE);
         programarCita(nuevaCita);
         return idCita;
     }
@@ -88,8 +88,43 @@ public class GestorCitas {
         int id = (int) (Math.random() * 100000); // Genera un número entre 0 y 99999
         return String.format("%05d", id); // Asegura que siempre tenga 5 dígitos (rellena con ceros a la izquierda)
     }
+    public void notificarCambioCita(Cita cita, Estado nuevoEstado, LocalDateTime nuevaFechaHora, String motivoCambio) {
+        Estado estadoAnterior = cita.getEstado();
+        LocalDateTime fechaAnterior = cita.getFechaHoraCita();
 
+        // Actualiza la fecha y hora si se proporciona una nueva
+        if (nuevaFechaHora != null) {
+            cita.setFechaHoraCita(nuevaFechaHora);
+        }
 
+        // Actualiza el estado de la cita
+        if (nuevoEstado != null) {
+            cita.setEstado(nuevoEstado);
+        }
+
+        // Si quieres guardar el motivo del cambio, puedes agregar un campo en Cita o solo usarlo en la notificación
+
+        // Notifica al médico
+        Medico medico = cita.getMedico();
+        if (medico != null) {
+            String mensaje = "Cambio en la cita: Estado anterior: " + estadoAnterior +
+                    ", Nuevo estado: " + cita.getEstado() +
+                    ", Fecha anterior: " + fechaAnterior +
+                    ", Nueva fecha: " + cita.getFechaHoraCita() +
+                    ", Motivo: " + motivoCambio;
+            Notificacion notificacion = new Notificacion(mensaje, LocalDateTime.now());
+            medico.getNotificacionessoobrecitas().add(notificacion);
+        }
+    }
+    public List<Cita> obtenerCitasPorMedico(Medico medico) {
+        List<Cita> citasMedico = new ArrayList<>();
+        for (Cita cita : citas) {
+            if (cita.getMedico() != null && cita.getMedico().equals(medico)) {
+                citasMedico.add(cita);
+            }
+        }
+        return citasMedico;
+    }
 
     }
 

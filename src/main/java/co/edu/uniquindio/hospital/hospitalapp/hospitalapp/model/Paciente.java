@@ -64,7 +64,7 @@ public class Paciente extends Persona {
         String idCita = UUID.randomUUID().toString();
 
         // Crear la nueva cita
-        Cita nuevaCita = new Cita(idCita, fechaHora, medicoAsignado, this, Estado.PENDIENTE);
+        Cita nuevaCita = new Cita(idCita, fechaHora, Estado.PENDIENTE);
 
         // Agregar a la lista del paciente
         this.citas.add(nuevaCita);

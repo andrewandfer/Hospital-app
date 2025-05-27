@@ -9,7 +9,7 @@ public class Cita {
     private Paciente paciente;
     private Estado estado;
 
-    public Cita(String idCita, LocalDateTime fechaHoraCita, Medico medico, Paciente paciente, Estado estado) {
+    public Cita(String idCita, LocalDateTime fechaHoraCita, Estado estado) {
         this.idCita = idCita;
         this.fechaHoraCita = fechaHoraCita;
         this.medico = medico;

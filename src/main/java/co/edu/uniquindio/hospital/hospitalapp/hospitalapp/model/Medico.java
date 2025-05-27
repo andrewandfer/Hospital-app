@@ -14,6 +14,7 @@ public class Medico extends Persona {
     private boolean disponible=true;
     private LinkedList<Paciente> pacientesAsignados;
     private LinkedList<Notificacion>notificacionessoobrecitas;
+    private LinkedList<Cita> citasAsignadas;
 
     public Medico(String nombre, String apellido, String id, String especialidad, String consultorio, String numLicencia, boolean disponible) {
         super(nombre, apellido, id);
@@ -25,11 +26,14 @@ public class Medico extends Persona {
         this.listaHistorialMedico = new LinkedList<>();
         this.pacientesAsignados = new LinkedList<>();
         this.notificacionessoobrecitas = new LinkedList<>();
+        this.citasAsignadas = new LinkedList<>();
     }
+
 
     public String getEspecialidad() {
         return especialidad;
     }
+
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
@@ -114,17 +118,12 @@ public class Medico extends Persona {
         this.pacientesAsignados = pacientesAsignados;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Medico{" +
-//                "especialidad='" + especialidad + '\'' +
-//                ", consultorio='" + consultorio + '\'' +
-//                ", numLicencia='" + numLicencia + '\'' +
-//                ", horarioMedico=" + horarioMedico +
-//                ", listaHistorialMedico=" + listaHistorialMedico +
-//                ", sala=" + sala +
-//                '}';
-//    }
+    public LinkedList<Cita> getCitasAsignadas() {
+        return citasAsignadas;
+    }
+    public void setCitasAsignadas(LinkedList<Cita> citasAsignadas) {
+        this.citasAsignadas = citasAsignadas;
+    }
 
     @Override
     public String toString() {

@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -29,10 +30,12 @@ public class    HospitalAppApplication extends Application {
         HistorialMedico historialMedicoPrueba = new HistorialMedico("Historial0", "Gripa", "Nada", pacientePrueba);
         Sala sala = new Sala("152","153","50",true);
         pacientePrueba.setHistorialMedico(historialMedicoPrueba);
-
+        Cita cita1= new Cita("120364", LocalDateTime.of(2012,12,21,12,12),Estado.PENDIENTE);
+        pacientePrueba.getCitas().add(cita1);
         hospital.getPacientes().add(pacientePrueba);
         Medico medicoPrueba = new Medico("Raul", "Gomez", "medico1", "nada", "D401",
                 "000", true);
+        medicoPrueba.getCitasAsignadas().add(cita1);
 
 
         hospital.getMedicosHospital().add(medicoPrueba);

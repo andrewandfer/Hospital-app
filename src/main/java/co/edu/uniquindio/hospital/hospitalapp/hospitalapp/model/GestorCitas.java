@@ -1,5 +1,7 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +107,7 @@ public class GestorCitas {
         // Si quieres guardar el motivo del cambio, puedes agregar un campo en Cita o solo usarlo en la notificación
 
         // Notifica al médico
-        Medico medico = cita.getMedico();
+        Medico medico = SceneManager.getMedico();
         if (medico != null) {
             String mensaje = "Cambio en la cita: Estado anterior: " + estadoAnterior +
                     ", Nuevo estado: " + cita.getEstado() +
@@ -114,6 +116,8 @@ public class GestorCitas {
                     ", Motivo: " + motivoCambio;
             Notificacion notificacion = new Notificacion(mensaje, LocalDateTime.now());
             medico.getNotificacionessoobrecitas().add(notificacion);
+            SceneManager.setMedico(medico);
+            SceneManager.getMedicoViewController().notificarCambioCita(medico);
         }
     }
     public List<Cita> obtenerCitasPorMedico(Medico medico) {

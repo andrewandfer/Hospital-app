@@ -59,6 +59,7 @@ public class MedicoViewController {
     // Método que muestra la notificación al médico
     @FXML
     private void OnNotificarcambios() {
+        notificarCambioCita(medico);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Notificación");
         alert.setHeaderText("Cambio en una cita");
@@ -79,6 +80,7 @@ public class MedicoViewController {
     void onBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         SceneManager.cambiarEscena(stage, "Hospitalapp-view.fxml", SceneManager.getAdministradorActual());
+        SceneManager.setMedico(medico);
     }
 }
 

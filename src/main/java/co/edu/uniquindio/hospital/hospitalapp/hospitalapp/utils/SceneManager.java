@@ -13,6 +13,7 @@ public class SceneManager {
 
     private static Administrador administradorActual;
     private static MedicoViewController medicoViewController;
+    private static Medico medico;
 
     public static Administrador getAdministradorActual() {
         return administradorActual;
@@ -81,7 +82,10 @@ public class SceneManager {
 
             Object controller = loader.getController();
             if (controller instanceof MedicoViewController) {
-                ((MedicoViewController) controller).setMedico(medico);
+                if (SceneManager.medico==null){
+                    SceneManager.medico = medico;
+                }
+                ((MedicoViewController) controller).setMedico(SceneManager.medico);
                 medicoViewController = (MedicoViewController) controller; // Guardar instancia
                 ((MedicoViewController) controller).notificarCambioCita(SceneManager.medico);
             } else if (controller instanceof MedicoRegistrarHistorialMedicoViewController) {
@@ -95,5 +99,15 @@ public class SceneManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setMedico(Medico medico) {
+        if (SceneManager.medico==null){
+            SceneManager.medico = medico;
+        }
+    }
+
+    public static Medico getMedico() {
+        return SceneManager.medico;
     }
 }

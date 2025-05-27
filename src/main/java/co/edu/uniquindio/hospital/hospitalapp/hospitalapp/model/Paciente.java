@@ -104,12 +104,17 @@ public class Paciente extends Persona {
     }
 
 
+//    @Override
+//    public String toString() {
+//        return "Paciente{" +
+//                ", historialMedico=" + historialMedico +
+//                ", citas=" + citas +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Paciente{" +
-                ", historialMedico=" + historialMedico +
-                ", citas=" + citas +
-                '}';
+        return this.getNombre(); // o getNombreCompleto(), o lo que prefieras
     }
 
     }

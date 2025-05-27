@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.GestionReportesViewController"
+      spacing="10" alignment="TOP_LEFT" prefWidth="600" prefHeight="400" style="-fx-padding: 10;">
+
+    <Label text="Seleccione Médico:" />
+    <ComboBox fx:id="comboMedicos" prefWidth="300" />
+
+    <Label text="Citas Disponibles:" />
+    <TableView fx:id="tablaCitas" prefWidth="580" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="colPaciente" text="Paciente" prefWidth="150"/>
+            <TableColumn fx:id="colFecha" text="Fecha" prefWidth="120"/>
+            <TableColumn fx:id="colHora" text="Hora" prefWidth="80"/>
+            <TableColumn fx:id="colMotivo" text="Motivo" prefWidth="230"/>
+        </columns>
+    </TableView>
+
+    <Label text="Reporte:" />
+    <TextArea fx:id="txtReporte" prefWidth="580" prefHeight="120" wrapText="true" />
+
+    <Button text="Guardar Reporte" onAction="#onGuardarReporte" prefWidth="150" />
+
+</VBox>
+
+
+
+
+
+
+
+
+

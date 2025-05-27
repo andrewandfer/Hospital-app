@@ -1,7 +1,11 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Paciente;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
@@ -9,6 +13,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class MedicoRegistrarHistorialMedicoViewController {
@@ -22,7 +29,7 @@ public class MedicoRegistrarHistorialMedicoViewController {
 
 
     @FXML
-    private ChoiceBox<?> ChiceBoxPaciente;
+    private ChoiceBox<Paciente> ChiceBoxPaciente;
 
     @FXML
     private Button btnBack;
@@ -38,6 +45,19 @@ public class MedicoRegistrarHistorialMedicoViewController {
 
     @FXML
     private TextField txtTratamiento;
+    private final ObservableList<Paciente> listaPacientes = FXCollections.observableArrayList();
+
+
+
+    @FXML
+    public void initialize() {
+        listaPacientes.addAll(HospitalAppApplication.hospital.getPacientes());
+
+        ChiceBoxPaciente.setItems(listaPacientes);
+
+
+    }
+
 
     @FXML
     void OnBack(ActionEvent event) {

@@ -52,8 +52,8 @@ public class CrearSalaFormViewController {
 
         HospitalAppApplication.hospital.getSalas().add(nuevaSala);
         Stage stage = (Stage) btnGuardar.getScene().getWindow();
-        stage.close();
-
+        mostrarAlerta("Sala guardada correctamente.");
+        limpiarCampos();
         }
 
 
@@ -73,6 +73,20 @@ public class CrearSalaFormViewController {
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+    private void mostrarAlerta(String mensaje, String titulo) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+    private void limpiarCampos() {
+        txtId.clear();
+        txtNombre.clear();
+        txtCapacidad.clear();
+        checkDisponible.setSelected(false);
+
     }
 }
 

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Horario;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
@@ -9,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
@@ -57,7 +59,7 @@ public class CrearActualizarHorarioFormViewController {
 
             Horario nuevoHorario = new Horario(dia, horaInicio, horaFin);
             listaHorarios.add(nuevoHorario);
-
+            HospitalAppApplication.hospital.getHorarioAtencion().add(nuevoHorario);
             mostrarAlerta("Horario guardado correctamente.");
             limpiarCampos();
 
@@ -78,6 +80,9 @@ public class CrearActualizarHorarioFormViewController {
         alert.setTitle("Información");
         alert.setContentText(mensaje);
         alert.showAndWait();
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagenes/logo.png")));
+
     }
 
     private void limpiarCampos() {

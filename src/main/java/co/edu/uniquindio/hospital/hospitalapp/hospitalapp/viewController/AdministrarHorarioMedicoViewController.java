@@ -64,18 +64,23 @@ public class AdministrarHorarioMedicoViewController {
             alerta.setTitle("Sin horarios");
             alerta.setHeaderText(null);
             alerta.setContentText("El médico seleccionado no tiene horarios asignados o es un nuevo médico.");
-            // Cambia el ícono de la ventana de la alerta
-            Stage stage = (Stage) alerta.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagenes/logo.png")));
+            // Agrega el logo
+            ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("/imagenes/logo.png")));
+            logo.setFitHeight(48);
+            logo.setFitWidth(48);
+            alerta.getDialogPane().setGraphic(logo);
             alerta.showAndWait();
         }
     }
     @FXML
     private void onBack(ActionEvent event) {
-        // lógica para volver
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "GestionMedico.fxml",SceneManager.getAdministradorActual());
     }
 
-    public void onBack(javafx.event.ActionEvent actionEvent) {
+    public void onBack(javafx.event.ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "Medico.fxml",SceneManager.getAdministradorActual());
     }
 }
 

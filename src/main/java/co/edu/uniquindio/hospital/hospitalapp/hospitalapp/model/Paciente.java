@@ -53,7 +53,7 @@ public class Paciente extends Persona {
     }
 
 
-    public boolean solicitarCita(LocalDateTime fechaHora, String motivo) {
+    public boolean solicitarCita(LocalDateTime fechaHora) {
         if (medicoAsignado == null) {
             System.out.println("El paciente no tiene un médico asignado.");
             return false;
@@ -104,13 +104,6 @@ public class Paciente extends Persona {
     }
 
 
-//    @Override
-//    public String toString() {
-//        return "Paciente{" +
-//                ", historialMedico=" + historialMedico +
-//                ", citas=" + citas +
-//                '}';
-//    }
 
     @Override
     public String toString() {

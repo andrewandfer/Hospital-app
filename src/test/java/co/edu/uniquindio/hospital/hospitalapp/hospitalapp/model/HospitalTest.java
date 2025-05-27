@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -58,6 +59,23 @@ class HospitalTest {
         boolean duplicado = hospital.registrarNuevoPaciente("Pedro", "Martinez", "123", LocalDate.of(1990, 1, 1));
         assertFalse(duplicado);
     }
+    @Test
+    void testObtenerHistorialMedico() {
+        // Crear hospital y paciente
+        Hospital hospital = new Hospital("Mi Hospital", "Calle 1", "NIT123", null, null);
+        Paciente paciente = new Paciente("Juan", "Perez", "123", LocalDate.of(2000, 1, 1));
+        hospital.getPacientes().add(paciente);
+
+        // Caso: paciente sin historial
+        String resultadoSinHistorial = hospital.obtenerHistorialMedico(null, paciente);
+        assertNull(resultadoSinHistorial);
+
+        // Caso: paciente con historial
+        HistorialMedico historial = new HistorialMedico( "hist123", "Diagnóstico inicial", "Tratamiento inicial", paciente);
+        paciente.setHistorialMedico(historial);
+        String resultadoConHistorial = hospital.obtenerHistorialMedico(null, paciente);
+        assertEquals(historial.toString(), resultadoConHistorial);
 
 
+    }
 }

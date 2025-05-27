@@ -13,6 +13,7 @@ public class Medico extends Persona {
     private Sala sala;
     private boolean disponible=true;
     private LinkedList<Paciente> pacientesAsignados;
+    private LinkedList<Notificacion>notificacionessoobrecitas;
 
     public Medico(String nombre, String apellido, String id, String especialidad, String consultorio, String numLicencia, boolean disponible) {
         super(nombre, apellido, id);
@@ -23,6 +24,7 @@ public class Medico extends Persona {
         this.horarioMedico = new LinkedList<>();
         this.listaHistorialMedico = new LinkedList<>();
         this.pacientesAsignados = new LinkedList<>();
+        this.notificacionessoobrecitas = new LinkedList<>();
     }
 
     public String getEspecialidad() {
@@ -64,6 +66,14 @@ public class Medico extends Persona {
     public void setListaHistorialMedico(LinkedList<HistorialMedico> listaHistorialMedico) {
         this.listaHistorialMedico = listaHistorialMedico;
 
+    }
+
+    public LinkedList<Notificacion> getNotificacionessoobrecitas() {
+        return notificacionessoobrecitas;
+    }
+
+    public void setNotificacionessoobrecitas(LinkedList<Notificacion> notificacionessoobrecitas) {
+        this.notificacionessoobrecitas = notificacionessoobrecitas;
     }
 
     public Sala getSala() {

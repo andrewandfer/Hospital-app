@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
-public class     HospitalAppApplication extends Application {
+public class    HospitalAppApplication extends Application {
 
 
     public static GestorCitas gestorCitas = new GestorCitas();

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.AdministrarHorarioMedicoViewController" prefWidth="500" prefHeight="350" style="-fx-background-color: #f4f8fb;">
+    <children>
+        <Label text="Horarios de Consulta" layoutX="160" layoutY="20" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c7fb8;"/>
+        <ComboBox fx:id="comboMedicos" layoutX="40" layoutY="60" prefWidth="420" promptText="Selecciona un médico"/>
+        <TableView fx:id="tablaHorarios" layoutX="40" layoutY="110" prefWidth="420" prefHeight="160" style="-fx-background-color: #eaf6fb;">
+            <columns>
+                <TableColumn fx:id="colDia" text="Día" prefWidth="140" style="-fx-background-color: #2c7fb8; -fx-text-fill: white;"/>
+                <TableColumn fx:id="colHoraInicio" text="Hora Inicio" prefWidth="140" style="-fx-background-color: #2c7fb8; -fx-text-fill: white;"/>
+                <TableColumn fx:id="colHoraFin" text="Hora Fin" prefWidth="140" style="-fx-background-color: #2c7fb8; -fx-text-fill: white;"/>
+            </columns>
+        </TableView>
+        <Button text="Volver" layoutX="210" layoutY="290" prefWidth="80" onAction="#onBack"
+                style="-fx-background-radius: 15; -fx-background-color: #7f8c8d; -fx-text-fill: white;"/>
+    </children>
+</AnchorPane>

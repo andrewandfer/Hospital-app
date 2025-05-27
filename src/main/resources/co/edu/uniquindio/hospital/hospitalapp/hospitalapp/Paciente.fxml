@@ -26,11 +26,11 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="btnRegistrarse" layoutX="100.0" layoutY="260.0" mnemonicParsing="false" onAction="#onRegistrarse" prefHeight="25.0" prefWidth="146.0" text="Registrarse" />
-            <Button fx:id="btnActualizarDatos" layoutX="98.0" layoutY="131.0" mnemonicParsing="false" onAction="#onActualizarDatos" prefHeight="25.0" prefWidth="154.0" text="Actualizar sus Datos" />
-            <Button fx:id="btnSolicitarCitas" layoutX="100.0" layoutY="174.0" mnemonicParsing="false" onAction="#onSolicitarCitas" prefHeight="25.0" prefWidth="150.0" text="Solicitar citas" />
-            <Button fx:id="btnCancelarCitas" layoutX="102.0" layoutY="219.0" mnemonicParsing="false" onAction="#onCancelarCitas" prefHeight="25.0" prefWidth="144.0" text="Cancelar citas" />
-            <Button fx:id="btnHistorialMedico" layoutX="98.0" layoutY="92.0" mnemonicParsing="false" onAction="#onHistorialMedico" text="Consultar historial medico" />
+            <Button fx:id="btnRegistrarse" layoutX="100.0" layoutY="260.0" mnemonicParsing="false" onAction="#onRegistrarse" prefHeight="25.0" prefWidth="146.0" style="-fx-background-color: #2c7fb8;" text="Registrarse" />
+            <Button fx:id="btnActualizarDatos" layoutX="98.0" layoutY="131.0" mnemonicParsing="false" onAction="#onActualizarDatos" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c7fb8;" text="Actualizar sus Datos" />
+            <Button fx:id="btnSolicitarCitas" layoutX="100.0" layoutY="174.0" mnemonicParsing="false" onAction="#onSolicitarCitas" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #2c7fb8;" text="Solicitar citas" />
+            <Button fx:id="btnCancelarCitas" layoutX="102.0" layoutY="219.0" mnemonicParsing="false" onAction="#onCancelarCitas" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #2c7fb8;" text="Cancelar citas" />
+            <Button fx:id="btnHistorialMedico" layoutX="98.0" layoutY="92.0" mnemonicParsing="false" onAction="#onHistorialMedico" style="-fx-background-color: #2c7fb8;" text="Consultar historial medico" />
             <Button fx:id="btn_back" layoutX="285.0" layoutY="351.0" mnemonicParsing="false" onAction="#onBack" style="-fx-background-radius: 15; -fx-background-color: #7f8c8d;" text="back" textFill="WHITE" />
          </children>
       </AnchorPane>

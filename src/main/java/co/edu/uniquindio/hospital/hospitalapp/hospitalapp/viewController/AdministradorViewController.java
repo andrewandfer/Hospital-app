@@ -97,9 +97,4 @@ public class AdministradorViewController {
         this.administrador = administrador;
 
     }
-    @FXML
-    void onGestionarMedico(ActionEvent event) {
-
-    }
-
 }

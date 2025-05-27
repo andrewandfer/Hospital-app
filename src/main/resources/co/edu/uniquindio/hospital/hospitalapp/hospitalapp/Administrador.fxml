@@ -24,29 +24,32 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="btnGestionarPacientes" layoutX="378.0" layoutY="111.0" mnemonicParsing="false" onAction="#OnGestionarPacientes" prefHeight="35.0" prefWidth="166.0" text="Gestionar Pacientes">
+            <Button fx:id="btnGestionarPacientes" layoutX="378.0" layoutY="111.0" mnemonicParsing="false" onAction="#OnGestionarPacientes" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #2c7fb8;" text="Gestionar Pacientes" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
-            <Button fx:id="btnGestionarMedicos" layoutX="378.0" layoutY="175.0" mnemonicParsing="false" onAction="#OnGestionarMedicos" prefHeight="35.0" prefWidth="166.0" text="Gestionar Medicos">
+            <Button fx:id="btnGestionarMedicos" layoutX="378.0" layoutY="175.0" mnemonicParsing="false" onAction="#OnGestionarMedicos" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #2c7fb8;" text="Gestionar Medicos" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
-            <Button fx:id="btnGestionarSalaYHorario" layoutX="378.0" layoutY="237.0" mnemonicParsing="false" onAction="#OnGestionarSalaYHorarios" prefHeight="35.0" prefWidth="166.0" text="Gestionar Salas y Horarios">
+            <Button fx:id="btnGestionarSalaYHorario" layoutX="378.0" layoutY="237.0" mnemonicParsing="false" onAction="#OnGestionarSalaYHorarios" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #2c7fb8;" text="Gestionar Salas y Horarios" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button fx:id="btnGenerarReporte" layoutX="378.0" layoutY="299.0" mnemonicParsing="false" onAction="#OnGenerarReporte" prefHeight="35.0" prefWidth="166.0" text="Generar Reportes">
+            <Button fx:id="btnGenerarReporte" layoutX="378.0" layoutY="299.0" mnemonicParsing="false" onAction="#OnGenerarReporte" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #2c7fb8;" text="Generar Reportes" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
-            <Button fx:id="btnBack" layoutX="20.0" layoutY="451.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 15;" text="Back" />
-            <Button fx:id="btnDisponibilidadMedicos" layoutX="378.0" layoutY="358.0" mnemonicParsing="false" onAction="#OnCambiarDisponibilidad" prefHeight="35.0" prefWidth="166.0" text="DisponibilidadMedicos">
+            <Button fx:id="btnBack" layoutX="20.0" layoutY="451.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="26.0" prefWidth="70.0" style="-fx-background-radius: 15; -fx-background-color: #7f8c8d;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnDisponibilidadMedicos" layoutX="378.0" layoutY="358.0" mnemonicParsing="false" onAction="#OnCambiarDisponibilidad" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #2c7fb8;" text="DisponibilidadMedicos" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnAsignarMedico" layoutX="378.0" layoutY="416.0" mnemonicParsing="false" onAction="#OnAsignarMedico" prefHeight="35.0" prefWidth="166.0" text="AsignarMedico">
+            <Button fx:id="btnAsignarMedico" layoutX="378.0" layoutY="416.0" mnemonicParsing="false" onAction="#OnAsignarMedico" prefHeight="35.0" prefWidth="166.0" style="-fx-background-color: #2c7fb8;" text="AsignarMedico" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>

@@ -186,6 +186,29 @@ public class Hospital {
                 ", gestorCitas=" + gestorCitas +
                 '}';
     }
+
+    public LinkedList<Paciente> getPacientesPorMedico(Medico medicoSeleccionado) {
+        for (Medico medico : medicosHospital) {
+            if (medico.equals(medicoSeleccionado)) {
+                return medico.getPacientesAsignados();
+            }
+
+        }
+        return new LinkedList<>();
+    }
+
+    public String obtenerHistorialMedico(Medico medicoSeleccionado, Paciente pacienteSeleccionado) {
+        for (Medico medico : medicosHospital) {
+            if (medico.equals(medicoSeleccionado)) {
+                for (HistorialMedico historial : medico.getListaHistorialMedico()) {
+                    if (historial.getPaciente().equals(pacienteSeleccionado)) {
+                        return historial.toString();
+                    }
+                }
+            }
+        }
+        return null; // No se encontró el historial médico
+    }
 }
 
 

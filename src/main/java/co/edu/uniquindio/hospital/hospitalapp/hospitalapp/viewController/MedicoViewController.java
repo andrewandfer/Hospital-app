@@ -36,6 +36,8 @@ public class MedicoViewController {
 
     @FXML
     void OnGestionarHistorialMedico(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "GestionarHistorialMedicoPaciente.fxml", SceneManager.getAdministradorActual());
     }
 
     @FXML
@@ -46,8 +48,13 @@ public class MedicoViewController {
     @FXML
     void OnRegistrarDiagnosticoOTratamiento(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscenaConMedico(stage, "MedicoRegistrarHistorialMedico.fxml",medico);
-      }
-}
+        SceneManager.cambiarEscenaConMedico(stage, "MedicoRegistrarHistorialMedico.fxml", medico);
+    }
 
+    @FXML
+    void onBack(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "Hospitalapp-view.fxml", SceneManager.getAdministradorActual());
+    }
+}
 

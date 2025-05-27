@@ -36,8 +36,8 @@ public class MedicoViewController {
 
     @FXML
     void OnAdministrarHorarios(ActionEvent event) {
-        // Acción para administrar horarios
-    }
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "AdministrarHorarioMedico.fxml", SceneManager.getAdministradorActual());    }
 
     @FXML
     void OnGestionarHistorialMedico(ActionEvent event) {

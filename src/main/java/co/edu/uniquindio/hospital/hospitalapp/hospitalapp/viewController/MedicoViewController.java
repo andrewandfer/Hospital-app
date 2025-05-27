@@ -46,26 +46,9 @@ public class MedicoViewController {
 
     // En MedicoViewController.java
     @FXML
-    private void OnNotificarcambios() {
-        Medico medicoActual = this.medico;        List<Notificacion> notificaciones = medicoActual.getNotificacionessoobrecitas();
-        if (!notificaciones.isEmpty()) {
-            StringBuilder mensaje = new StringBuilder();
-            for (Notificacion n : notificaciones) {
-                mensaje.append(n.getMensaje()).append("\n");
-            }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notificaciones de Citas");
-            alert.setHeaderText("Cambios recientes en tus citas:");
-            alert.setContentText(mensaje.toString());
-            alert.showAndWait();
-            notificaciones.clear(); // Limpia las notificaciones después de mostrarlas
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notificaciones de Citas");
-            alert.setHeaderText(null);
-            alert.setContentText("No tienes notificaciones nuevas.");
-            alert.showAndWait();
-        }
+    private void OnNotificarcambios(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscenaConMedico(stage, "GestionReporteMedico.fxml", medico);
     }
     @FXML
     void OnRegistrarDiagnosticoOTratamiento(ActionEvent event) {

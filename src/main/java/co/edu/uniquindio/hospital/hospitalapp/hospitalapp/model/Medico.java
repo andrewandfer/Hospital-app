@@ -13,7 +13,7 @@ public class Medico extends Persona {
     private Sala sala;
     private boolean disponible=true;
     private LinkedList<Paciente> pacientesAsignados;
-    private LinkedList<Notificacion>notificacionessoobrecitas;
+    private LinkedList<Notificacion> notificacionessoobrecitas;
     private LinkedList<Cita> citasAsignadas;
     private LinkedList<Horario> horariosAsignados;
 

@@ -29,5 +29,6 @@
          </font>
       </Label>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#onBack" prefHeight="26.0" prefWidth="65.0" style="-fx-background-radius: 15;" text="Back" />
+
    </children>
 </AnchorPane>

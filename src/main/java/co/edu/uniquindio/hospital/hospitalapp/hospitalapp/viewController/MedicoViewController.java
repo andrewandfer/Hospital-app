@@ -1,7 +1,6 @@
 package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
-import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Notificacion;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,8 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
-import java.util.List;
 
 public class MedicoViewController {
 
@@ -22,13 +19,16 @@ public class MedicoViewController {
     }
 
     @FXML
+    private Button btnNotificarCambios;
+
+    // Variable para guardar el mensaje de notificación
+    private String mensajeNotificacion = "";
+
+    @FXML
     private Button btnAdministrarHorarios;
 
     @FXML
     private Button btnGestionarHistorialMedico;
-
-    @FXML
-    private Button btnNotificarCambios;
 
     @FXML
     private Button btnRegistrarDiagnosticoTratamiento;
@@ -44,29 +44,25 @@ public class MedicoViewController {
         SceneManager.cambiarEscena(stage, "GestionarHistorialMedicoPaciente.fxml", SceneManager.getAdministradorActual());
     }
 
-    // En MedicoViewController.java
+    // Método para recibir la notificación desde el administrador
+    public void notificarCambioCita(String mensaje) {
+        this.mensajeNotificacion = mensaje;
+        btnNotificarCambios.setStyle("-fx-background-color: #f39c12;");
+    }
+
+    // Método que muestra la notificación al médico
     @FXML
     private void OnNotificarcambios() {
-        Medico medicoActual = this.medico;        List<Notificacion> notificaciones = medicoActual.getNotificacionessoobrecitas();
-        if (!notificaciones.isEmpty()) {
-            StringBuilder mensaje = new StringBuilder();
-            for (Notificacion n : notificaciones) {
-                mensaje.append(n.getMensaje()).append("\n");
-            }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notificaciones de Citas");
-            alert.setHeaderText("Cambios recientes en tus citas:");
-            alert.setContentText(mensaje.toString());
-            alert.showAndWait();
-            notificaciones.clear(); // Limpia las notificaciones después de mostrarlas
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notificaciones de Citas");
-            alert.setHeaderText(null);
-            alert.setContentText("No tienes notificaciones nuevas.");
-            alert.showAndWait();
-        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Notificación");
+        alert.setHeaderText("Cambio en una cita");
+        alert.setContentText(mensajeNotificacion.isEmpty() ? "No hay notificaciones nuevas." : mensajeNotificacion);
+        alert.showAndWait();
+        // Limpiar la notificación después de verla
+        mensajeNotificacion = "";
+        btnNotificarCambios.setStyle("");
     }
+
     @FXML
     void OnRegistrarDiagnosticoOTratamiento(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

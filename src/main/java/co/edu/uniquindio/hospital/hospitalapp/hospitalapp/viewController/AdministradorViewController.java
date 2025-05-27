@@ -34,40 +34,42 @@ public class AdministradorViewController {
     private Button btnDisponibilidadMedicos;
 
     @FXML
+    private Button btnBack;
+
+    private Administrador administrador;
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
+    }
+
+    @FXML
     void OnCambiarDisponibilidad(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "GestionarDisponibilidadMedico.fxml",SceneManager.getAdministradorActual());
-
-
+        SceneManager.cambiarEscena(stage, "GestionarDisponibilidadMedico.fxml", SceneManager.getAdministradorActual());
     }
+
     @FXML
     void OnAsignarMedico(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "AsignarPacienteMedico.fxml",SceneManager.getAdministradorActual());
-
+        SceneManager.cambiarEscena(stage, "AsignarPacienteMedico.fxml", SceneManager.getAdministradorActual());
     }
 
     @FXML
-    private Button btnBack;
-    @FXML
     void OnBack(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Hospitalapp-view.fxml",SceneManager.getAdministradorActual());
-
+        SceneManager.cambiarEscena(stage, "Hospitalapp-view.fxml", SceneManager.getAdministradorActual());
     }
 
     @FXML
     void OnGenerarReporte(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "GenerarReportes.fxml",SceneManager.getAdministradorActual());
-
+        SceneManager.cambiarEscena(stage, "GenerarReportes.fxml", SceneManager.getAdministradorActual());
     }
 
     @FXML
     void OnGestionarMedicos(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "GestionMedico.fxml",SceneManager.getAdministradorActual());
-
+        SceneManager.cambiarEscena(stage, "GestionMedico.fxml", SceneManager.getAdministradorActual());
     }
 
     @FXML
@@ -84,22 +86,24 @@ public class AdministradorViewController {
             e.printStackTrace();
         }
     }
+
     @FXML
     void OnGestionarSalaYHorarios(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "GestionarSalaHorarios.fxml",SceneManager.getAdministradorActual());
-
-
+        SceneManager.cambiarEscena(stage, "GestionarSalaHorarios.fxml", SceneManager.getAdministradorActual());
     }
-    private Administrador administrador;
 
-    public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
-
-    }
     @FXML
     void onGestionarMedico(ActionEvent event) {
-
+        // Implementar si es necesario
     }
 
+    // Método correcto para notificar al médico que ya tiene la interfaz abierta
+    @FXML
+    void notificarAlMedico(ActionEvent event) {
+        var medicoController = SceneManager.getMedicoViewController();
+        if (medicoController != null) {
+            medicoController.notificarCambioCita("Se ha modificado una cita. Por favor, revise los cambios.");
+        }
+    }
 }

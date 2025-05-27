@@ -10,6 +10,22 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneManager {
+
+    private static Administrador administradorActual;
+    private static MedicoViewController medicoViewController;
+
+    public static Administrador getAdministradorActual() {
+        return administradorActual;
+    }
+
+    public static void setAdministradorActual(Administrador administrador) {
+        administradorActual = administrador;
+    }
+
+    public static MedicoViewController getMedicoViewController() {
+        return medicoViewController;
+    }
+
     public static void cambiarEscena(Stage stage, String rutaFXML, Administrador administradorActual) {
         try {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/"+rutaFXML));
@@ -22,13 +38,6 @@ public class SceneManager {
         }
     }
 
-    /**
-     * Cambia la escena de la aplicación y pasa el paciente a la nueva escena.
-     * @param stage
-     * @param rutaFXML
-     * @param administradorActual
-     * @param paciente
-     */
     public static void cambiarEscenaConDatos(Stage stage, String rutaFXML, Administrador administradorActual, Paciente paciente) {
         try {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + rutaFXML));
@@ -50,12 +59,6 @@ public class SceneManager {
         }
     }
 
-    /**
-     * Cambia la escena de la aplicación y pasa el paciente a la nueva escena.
-     * @param stage
-     * @param fxml
-     * @param paciente
-     */
     public static void cambiarEscenaConPaciente(Stage stage, String fxml, Paciente paciente) {
         try {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + fxml));
@@ -68,20 +71,7 @@ public class SceneManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
-
-    private static Administrador administradorActual;
-
-    public static Administrador getAdministradorActual() {
-        return administradorActual;
-    }
-
-    public static void setAdministradorActual(Administrador administrador) {
-        administradorActual = administrador;
-    }
-
 
     public static void cambiarEscenaConMedico(Stage stage, String fxml, Medico medico) {
         try {
@@ -89,9 +79,14 @@ public class SceneManager {
                     "/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/" + fxml));
             Parent root = loader.load();
 
-            // CAMBIO AQUÍ: Usamos el controlador real de la vista FXML
-            MedicoRegistrarHistorialMedicoViewController controller = loader.getController();
-            controller.setMedico(medico); // Pasamos el objeto médico
+            Object controller = loader.getController();
+            if (controller instanceof MedicoViewController) {
+                ((MedicoViewController) controller).setMedico(medico);
+                medicoViewController = (MedicoViewController) controller; // Guardar instancia
+            } else if (controller instanceof MedicoRegistrarHistorialMedicoViewController) {
+                ((MedicoRegistrarHistorialMedicoViewController) controller).setMedico(medico);
+                // Si necesitas notificar aquí, crea otra variable estática similar
+            }
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -100,5 +95,4 @@ public class SceneManager {
             e.printStackTrace();
         }
     }
-
 }

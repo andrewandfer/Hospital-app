@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="343.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.CancelarCitaPacientevc">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="343.0" style="-fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.CancelarCitaPacientevc">
    <children>
       <Label layoutX="116.0" layoutY="35.0" prefHeight="37.0" prefWidth="198.0" text="Cancelar cita  " textFill="WHITE">
          <font>
@@ -17,6 +14,6 @@
       <Label layoutX="33.0" layoutY="117.0" text="Ingrese el ID de la cita" textFill="WHITE" />
       <TextField fx:id="txtIdCita" layoutX="33.0" layoutY="141.0" prefHeight="25.0" prefWidth="271.0" />
       <Button fx:id="btnCancelar" layoutX="101.0" layoutY="193.0" mnemonicParsing="false" onAction="#OnCancelar" prefHeight="25.0" prefWidth="124.0" text="Cancelar " />
-      <Button fx:id="btnBack" layoutX="25.0" layoutY="329.0" mnemonicParsing="false" onAction="#OnBack" style="-fx-background-radius: 15;" text="Back" />
+      <Button fx:id="btnBack" layoutX="25.0" layoutY="329.0" mnemonicParsing="false" onAction="#OnBack" style="-fx-background-color: 15;" text="Back" />
    </children>
 </AnchorPane>

@@ -3,6 +3,7 @@ package co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplication;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Administrador;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -211,5 +212,9 @@ public class GestionMedicoViewController implements ControladorConAdministrador{
         }
     }
 
+    public void onAsignarHorario(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        SceneManager.cambiarEscena(stage, "HorarioForm.fxml",SceneManager.getAdministradorActual());
 
+    }
 }

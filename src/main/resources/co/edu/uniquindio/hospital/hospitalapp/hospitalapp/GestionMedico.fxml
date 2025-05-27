@@ -57,5 +57,13 @@
             <DropShadow />
          </effect>
       </Button>
+      <Button fx:id="btnAsignarHorario" layoutX="258.0" layoutY="376.0" mnemonicParsing="false" onAction="#onAsignarHorario" style="-fx-background-radius: 15;" text="Asignar Horarios al medico">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

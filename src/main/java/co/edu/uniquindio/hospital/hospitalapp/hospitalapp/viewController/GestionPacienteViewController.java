@@ -67,7 +67,7 @@ public class GestionPacienteViewController {
         abrirFormularioPaciente(false, null);
     }
 
-    public void agregarPacienteSistema(Paciente paciente){
+    public void agregarPacienteSistema(Paciente paciente) {
         HospitalAppApplication.hospital.getPacientes().add(paciente);
         agregarPacienteATabla(paciente);
     }
@@ -145,6 +145,10 @@ public class GestionPacienteViewController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         SceneManager.cambiarEscena(stage, "Administrador.fxml", SceneManager.getAdministradorActual());
 
+    }
+
+    @FXML
+    void onAsignarHorario(ActionEvent event) {
     }
 }
 

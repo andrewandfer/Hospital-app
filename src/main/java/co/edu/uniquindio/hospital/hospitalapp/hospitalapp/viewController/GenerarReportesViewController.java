@@ -4,6 +4,7 @@ import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.app.HospitalAppApplica
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Cita;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Estado;
+import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Notificacion;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.utils.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -58,7 +59,7 @@ public class GenerarReportesViewController {
                 LocalDateTime fechaHora = newVal.getFechaHoraCita();
                 dateFechaCita.setValue(fechaHora != null ? fechaHora.toLocalDate() : null);
                 txtHoraCita.setText(fechaHora != null ? fechaHora.toLocalTime().toString() : "");
-                txtMotivoCita.setText(""); // No hay campo motivo en Cita según tu modelo
+                txtMotivoCita.setText("");
                 choiceEstadoCita.setValue(newVal.getEstado());
             } else {
                 limpiarCamposCita();
@@ -71,22 +72,27 @@ public class GenerarReportesViewController {
 
     private void guardarCambios() {
         Cita cita = choiceCita.getValue();
-        if (cita != null) {
+        Medico medico = choiceMedico.getValue(); // Obtener el médico seleccionado
+
+        if (cita != null && medico != null) {
             LocalDate fecha = dateFechaCita.getValue();
             String horaStr = txtHoraCita.getText();
             LocalTime hora = (horaStr != null && !horaStr.isEmpty()) ? LocalTime.parse(horaStr) : null;
             LocalDateTime nuevaFechaHora = (fecha != null && hora != null) ? LocalDateTime.of(fecha, hora) : null;
             Estado nuevoEstado = choiceEstadoCita.getValue();
-            String motivoCambio = txtMotivosCambio.getText();
+            String motivoCambioTexto = txtMotivosCambio.getText();
+
+            Notificacion notificacion = new Notificacion(motivoCambioTexto, LocalDateTime.now());
+
+            medico.getNotificacionessoobrecitas().add(notificacion);
 
             HospitalAppApplication.hospital.getGestorCitas()
-                    .notificarCambioCita(cita, nuevoEstado, nuevaFechaHora, motivoCambio);
+                    .notificarCambioCita(cita, nuevoEstado, nuevaFechaHora, motivoCambioTexto);
 
-            // Mostrar alerta de éxito
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Éxito");
             alert.setHeaderText(null);
-            alert.setContentText("La cita se guardó correctamente.");
+            alert.setContentText("La cita se guardó correctamente y se registró la notificación.");
             alert.showAndWait();
         }
     }

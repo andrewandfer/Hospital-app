@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="350" prefWidth="400" spacing="10" style="-fx-padding: 15; -fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.GestionarHistorialMedicoPacienteViewController">
+<VBox alignment="TOP_CENTER" prefHeight="350" prefWidth="400" spacing="10" style="-fx-padding: 15; -fx-background-color: #1A3C57;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.GestionarHistorialMedicoPacienteViewController">
 
     <Label text="Seleccione un Médico:" textFill="#fcf6f6" />
 
@@ -20,7 +18,10 @@
 
     <TextArea fx:id="txtHistorial" editable="false" prefHeight="180" prefWidth="350" wrapText="true" />
 
-    <Button onAction="#onLimpiar" prefWidth="100" style="-fx-background-color: #27ae60;" text="Limpiar" />
-   <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onBack" style="-fx-background-color: #7f8c8d;" text="Back" />
+    <Button onAction="#onLimpiar" prefWidth="100" style="-fx-background-color: #27ae60;" text="Limpiar" textFill="WHITE">
+      <font>
+         <Font name="System Bold Italic" size="12.0" />
+      </font></Button>
+   <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onBack" style="-fx-background-color: #7f8c8d;" text="Back" textFill="WHITE" />
 
 </VBox>

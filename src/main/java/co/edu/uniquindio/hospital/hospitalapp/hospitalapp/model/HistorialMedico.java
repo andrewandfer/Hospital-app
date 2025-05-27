@@ -58,11 +58,11 @@ public class HistorialMedico {
 
         @Override
         public String toString() {
-            return "📋 Historial Médico:\n" +
-                    "🆔 ID: " + idHistorialMedico + "\n" +
-                    "🧾 Diagnóstico: " + diagnostico + "\n" +
-                    "💊 Tratamiento: " + tratamiento + "\n" +
-                    "👤 Paciente: " + paciente + "\n";
+            return "Historial Médico:\n" +
+                    " ID: " + idHistorialMedico + "\n" +
+                    "Diagnóstico: " + diagnostico + "\n" +
+                    "Tratamiento: " + tratamiento + "\n" +
+                    "Paciente: " + paciente +  "\n";
         }
 
     }

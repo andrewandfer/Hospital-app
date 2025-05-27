@@ -5,11 +5,15 @@ import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Horario;
 import co.edu.uniquindio.hospital.hospitalapp.hospitalapp.model.Medico;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 
@@ -63,7 +67,7 @@ public class HorarioFormViewController {
             medico.getHorariosAsignados().add(horario);
 
             mostrarAlertaInfo("Horario asignado", "El horario fue asignado correctamente.");
-            cerrarVentana();
+            irAGestionMedico();
         } catch (DateTimeParseException e) {
             mostrarAlerta("Formato incorrecto", "Las horas deben tener el formato HH:mm (ejemplo: 08:30).");
         }
@@ -71,6 +75,21 @@ public class HorarioFormViewController {
 
     @FXML
     private void onCancelar() {
+        irAGestionMedico();
+    }
+
+    private void irAGestionMedico() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/hospital/hospitalapp/hospitalapp/GestionMedico.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagenes/logo.png")));
+            stage.setTitle("Gestión Médico");
+            stage.show();
+        } catch (IOException e) {
+            mostrarAlerta("Error", "No se pudo abrir la ventana de gestión de médico.");
+        }
         cerrarVentana();
     }
 

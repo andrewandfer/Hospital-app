@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.PacienteViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.PacienteViewController">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,18 +23,21 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="129.0" layoutY="56.0" text="¿Que desea hacer?" />
-            <Label layoutX="116.0" layoutY="14.0" text="Bienvenido">
+            <Label layoutX="116.0" layoutY="14.0" prefHeight="25.0" prefWidth="124.0" text="Bienvenido">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold Italic" size="20.0" />
+               </font></Label>
+            <Button fx:id="btnRegistrarse" layoutX="92.0" layoutY="263.0" mnemonicParsing="false" onAction="#onRegistrarse" prefHeight="41.0" prefWidth="164.0" style="-fx-background-color: #2c7fb8;" text="Registrarse" textFill="WHITE" />
+            <Button fx:id="btnActualizarDatos" layoutX="93.0" layoutY="121.0" mnemonicParsing="false" onAction="#onActualizarDatos" prefHeight="42.0" prefWidth="162.0" style="-fx-background-color: #2c7fb8;" text="Actualizar sus Datos" textFill="#fffdfd" />
+            <Button fx:id="btnSolicitarCitas" layoutX="93.0" layoutY="172.0" mnemonicParsing="false" onAction="#onSolicitarCitas" prefHeight="37.0" prefWidth="162.0" style="-fx-background-color: #2c7fb8;" text="Solicitar citas" textFill="WHITE" />
+            <Button fx:id="btnCancelarCitas" layoutX="93.0" layoutY="218.0" mnemonicParsing="false" onAction="#onCancelarCitas" prefHeight="39.0" prefWidth="162.0" style="-fx-background-color: #2c7fb8;" text="Cancelar citas" textFill="WHITE" />
+            <Button fx:id="btnHistorialMedico" layoutX="93.0" layoutY="69.0" mnemonicParsing="false" onAction="#onHistorialMedico" prefHeight="44.0" prefWidth="162.0" style="-fx-background-color: #2c7fb8;" text="Consultar historial medico" textFill="#fffdfd" />
+            <Button fx:id="btn_back" layoutX="285.0" layoutY="351.0" mnemonicParsing="false" onAction="#onBack" style="-fx-background-color: #7f8c8d;" text="back" textFill="#0a0a0a" />
+            <Label layoutX="116.0" layoutY="37.0" prefHeight="25.0" prefWidth="124.0" text="¿Que desea hacer?">
+               <font>
+                  <Font name="System Bold Italic" size="11.0" />
                </font>
             </Label>
-            <Button fx:id="btnRegistrarse" layoutX="100.0" layoutY="260.0" mnemonicParsing="false" onAction="#onRegistrarse" prefHeight="25.0" prefWidth="146.0" style="-fx-background-color: #2c7fb8;" text="Registrarse" />
-            <Button fx:id="btnActualizarDatos" layoutX="98.0" layoutY="131.0" mnemonicParsing="false" onAction="#onActualizarDatos" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c7fb8;" text="Actualizar sus Datos" />
-            <Button fx:id="btnSolicitarCitas" layoutX="100.0" layoutY="174.0" mnemonicParsing="false" onAction="#onSolicitarCitas" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #2c7fb8;" text="Solicitar citas" />
-            <Button fx:id="btnCancelarCitas" layoutX="102.0" layoutY="219.0" mnemonicParsing="false" onAction="#onCancelarCitas" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #2c7fb8;" text="Cancelar citas" />
-            <Button fx:id="btnHistorialMedico" layoutX="98.0" layoutY="92.0" mnemonicParsing="false" onAction="#onHistorialMedico" style="-fx-background-color: #2c7fb8;" text="Consultar historial medico" />
-            <Button fx:id="btn_back" layoutX="285.0" layoutY="351.0" mnemonicParsing="false" onAction="#onBack" style="-fx-background-radius: 15; -fx-background-color: #7f8c8d;" text="back" textFill="WHITE" />
          </children>
       </AnchorPane>
    </center>

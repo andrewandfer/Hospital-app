@@ -37,8 +37,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btnRegistrar" layoutX="129.0" layoutY="292.0" mnemonicParsing="false" onAction="#OnRegistrar" prefHeight="25.0" prefWidth="117.0" text="Registrar" />
-      <Button fx:id="btnBack" layoutX="32.0" layoutY="349.0" mnemonicParsing="false" onAction="#OnBack" style="-fx-background-radius: 15;" text="Back " />
+      <Button fx:id="btnRegistrar" layoutX="129.0" layoutY="292.0" mnemonicParsing="false" onAction="#OnRegistrar" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #27ae60;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnBack" layoutX="32.0" layoutY="349.0" mnemonicParsing="false" onAction="#OnBack" style="-fx-background-radius: 15; -fx-background-color: #7f8c8d;" text="Back " />
       <ChoiceBox fx:id="ChiceBoxPaciente" layoutX="32.0" layoutY="249.0" prefHeight="25.0" prefWidth="311.0" />
    </children>
 </AnchorPane>

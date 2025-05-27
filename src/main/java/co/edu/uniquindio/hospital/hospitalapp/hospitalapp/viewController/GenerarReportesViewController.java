@@ -122,7 +122,7 @@ public class GenerarReportesViewController {
     private void onBack() {
         // Lógica para volver a la pantalla anterior
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
-        SceneManager.cambiarEscena(stage, "Medico.fxml", SceneManager.getAdministradorActual());
+        SceneManager.cambiarEscena(stage, "Administrador.fxml", SceneManager.getAdministradorActual());
 
     }
 }

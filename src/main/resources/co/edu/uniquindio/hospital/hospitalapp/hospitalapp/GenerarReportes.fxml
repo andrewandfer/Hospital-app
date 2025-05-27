@@ -42,9 +42,9 @@
                 </HBox>
                 <TextArea fx:id="txtMotivosCambio" prefHeight="109.0" prefRowCount="3" prefWidth="458.0" />
                 <HBox alignment="CENTER" spacing="20">
-                    <Button fx:id="btnGuardar" style="-fx-background-color: #36ac3a; -fx-background-radius: 15;" text="Guardar" />
-                    <Button fx:id="btnCancelar" style="-fx-background-color: fa2626; -fx-background-radius: 15;" text="Cancelar" textFill="#231010" />
-               <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onBack" style="-fx-background-image: #0ca6ff; -fx-background-radius: 15;" text="Back" textFill="#03131b" />
+                    <Button fx:id="btnGuardar" style="-fx-background-color: #36ac3a; -fx-background-radius: 15;" text="Guardar" textFill="#fffcfc" />
+                    <Button fx:id="btnCancelar" style="-fx-background-color: fa2626; -fx-background-radius: 15;" text="Cancelar" textFill="WHITE" />
+               <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onBack" style="-fx-background-color: #7f8c8d; -fx-background-radius: 15;" text="Back" textFill="#f7f7f7" />
                 </HBox>
             </children>
             <padding>

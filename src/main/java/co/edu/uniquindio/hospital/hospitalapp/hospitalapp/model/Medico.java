@@ -127,7 +127,7 @@ public class Medico extends Persona {
 
     @Override
     public String toString() {
-        return getNombre() + ", Especialida: " + especialidad + ", Disponibilidad: " + (disponible ? "Disponible" : "No disponible");
+        return this.getNombre(); // Asegúrate de que existe el método getNombre() en Medico
     }
 
 

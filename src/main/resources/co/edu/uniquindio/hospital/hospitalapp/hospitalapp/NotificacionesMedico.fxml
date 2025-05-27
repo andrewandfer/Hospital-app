@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.hospital.hospitalapp.hospitalapp.viewController.NotificacionesMedicoViewController" prefWidth="400" prefHeight="320">
+    <children>
+        <Label text="Médico:" layoutX="30" layoutY="30"/>
+        <ComboBox fx:id="comboMedicos" layoutX="100" layoutY="25" prefWidth="250"/>
+        <ListView fx:id="listNotificaciones" layoutX="30" layoutY="70" prefWidth="340" prefHeight="150"/>
+        <Button fx:id="btnCargarNotificaciones" text="Cargar Notificaciones" layoutX="30" layoutY="240" prefWidth="160" onAction="#onCargarNotificaciones"/>
+        <Button fx:id="btnMarcarLeidas" text="Marcar como Leídas" layoutX="210" layoutY="240" prefWidth="160" onAction="#onMarcarLeidas"/>
+        <Button text="Volver" layoutX="160" layoutY="280" prefWidth="80" onAction="#onBack"/>
+    </children>
+</AnchorPane>
